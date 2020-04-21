@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,20 @@
 		2EA2947C244F877D00E468BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA2947A244F877D00E468BC /* Main.storyboard */; };
 		2EA2947E244F878400E468BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA2947D244F878400E468BC /* Assets.xcassets */; };
 		2EA29481244F878400E468BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EA2947F244F878400E468BC /* LaunchScreen.storyboard */; };
+		2EA294B2244F8C6900E468BC /* park.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294A5244F8C6800E468BC /* park.wav */; };
+		2EA294B3244F8C6900E468BC /* pageflip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294A6244F8C6800E468BC /* pageflip.mp3 */; };
+		2EA294B4244F8C6900E468BC /* zoom_in.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294A7244F8C6800E468BC /* zoom_in.mp3 */; };
+		2EA294B5244F8C6900E468BC /* door_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294A8244F8C6800E468BC /* door_open.wav */; };
+		2EA294B6244F8C6900E468BC /* zoom_out.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294A9244F8C6800E468BC /* zoom_out.mp3 */; };
+		2EA294B7244F8C6900E468BC /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AA244F8C6800E468BC /* forest.mp3 */; };
+		2EA294B8244F8C6900E468BC /* lake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AB244F8C6800E468BC /* lake.wav */; };
+		2EA294B9244F8C6900E468BC /* door_close.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AC244F8C6800E468BC /* door_close.mp3 */; };
+		2EA294BA244F8C6900E468BC /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AD244F8C6800E468BC /* river.mp3 */; };
+		2EA294BB244F8C6900E468BC /* gravel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AE244F8C6800E468BC /* gravel.mp3 */; };
+		2EA294BC244F8C6900E468BC /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294AF244F8C6800E468BC /* train.mp3 */; };
+		2EA294BD244F8C6900E468BC /* motorway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294B0244F8C6900E468BC /* motorway.mp3 */; };
+		2EA294BE244F8C6900E468BC /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294B1244F8C6900E468BC /* water.mp3 */; };
+		497494B8E28B7C410C25F961 /* Pods_TouchExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6C69D404FB3BFF069740F2 /* Pods_TouchExplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +38,22 @@
 		2EA2947D244F878400E468BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EA29480244F878400E468BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EA29482244F878400E468BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EA294A5244F8C6800E468BC /* park.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = park.wav; path = Sounds/park.wav; sourceTree = "<group>"; };
+		2EA294A6244F8C6800E468BC /* pageflip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pageflip.mp3; path = Sounds/pageflip.mp3; sourceTree = "<group>"; };
+		2EA294A7244F8C6800E468BC /* zoom_in.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zoom_in.mp3; path = Sounds/zoom_in.mp3; sourceTree = "<group>"; };
+		2EA294A8244F8C6800E468BC /* door_open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = door_open.wav; path = Sounds/door_open.wav; sourceTree = "<group>"; };
+		2EA294A9244F8C6800E468BC /* zoom_out.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zoom_out.mp3; path = Sounds/zoom_out.mp3; sourceTree = "<group>"; };
+		2EA294AA244F8C6800E468BC /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = forest.mp3; path = Sounds/forest.mp3; sourceTree = "<group>"; };
+		2EA294AB244F8C6800E468BC /* lake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lake.wav; path = Sounds/lake.wav; sourceTree = "<group>"; };
+		2EA294AC244F8C6800E468BC /* door_close.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = door_close.mp3; path = Sounds/door_close.mp3; sourceTree = "<group>"; };
+		2EA294AD244F8C6800E468BC /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = river.mp3; path = Sounds/river.mp3; sourceTree = "<group>"; };
+		2EA294AE244F8C6800E468BC /* gravel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gravel.mp3; path = Sounds/gravel.mp3; sourceTree = "<group>"; };
+		2EA294AF244F8C6800E468BC /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = train.mp3; path = Sounds/train.mp3; sourceTree = "<group>"; };
+		2EA294B0244F8C6900E468BC /* motorway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = motorway.mp3; path = Sounds/motorway.mp3; sourceTree = "<group>"; };
+		2EA294B1244F8C6900E468BC /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = water.mp3; path = Sounds/water.mp3; sourceTree = "<group>"; };
+		3A7686B56DF200BEC67A8B94 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
+		7C6C69D404FB3BFF069740F2 /* Pods_TouchExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B116E7E01687A3413EF52990 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497494B8E28B7C410C25F961 /* Pods_TouchExplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +71,24 @@
 		2EA29468244F877D00E468BC = {
 			isa = PBXGroup;
 			children = (
+				2EA29488244F89A900E468BC /* Sounds */,
+				2EA294AC244F8C6800E468BC /* door_close.mp3 */,
+				2EA294A8244F8C6800E468BC /* door_open.wav */,
+				2EA294AA244F8C6800E468BC /* forest.mp3 */,
+				2EA294AE244F8C6800E468BC /* gravel.mp3 */,
+				2EA294AB244F8C6800E468BC /* lake.wav */,
+				2EA294B0244F8C6900E468BC /* motorway.mp3 */,
+				2EA294A6244F8C6800E468BC /* pageflip.mp3 */,
+				2EA294A5244F8C6800E468BC /* park.wav */,
+				2EA294AD244F8C6800E468BC /* river.mp3 */,
+				2EA294AF244F8C6800E468BC /* train.mp3 */,
+				2EA294B1244F8C6900E468BC /* water.mp3 */,
+				2EA294A7244F8C6800E468BC /* zoom_in.mp3 */,
+				2EA294A9244F8C6800E468BC /* zoom_out.mp3 */,
 				2EA29473244F877D00E468BC /* TouchExplore */,
 				2EA29472244F877D00E468BC /* Products */,
+				95AB2C67627E0F73DE7D9671 /* Pods */,
+				FE760BB50C2C68FE5EF1712E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +114,30 @@
 			path = TouchExplore;
 			sourceTree = "<group>";
 		};
+		2EA29488244F89A900E468BC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		95AB2C67627E0F73DE7D9671 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B116E7E01687A3413EF52990 /* Pods-TouchExplore.debug.xcconfig */,
+				3A7686B56DF200BEC67A8B94 /* Pods-TouchExplore.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE760BB50C2C68FE5EF1712E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C6C69D404FB3BFF069740F2 /* Pods_TouchExplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EA29485244F878400E468BC /* Build configuration list for PBXNativeTarget "TouchExplore" */;
 			buildPhases = (
+				D6952CF4D4462A8F483CB809 /* [CP] Check Pods Manifest.lock */,
 				2EA2946D244F877D00E468BC /* Sources */,
 				2EA2946E244F877D00E468BC /* Frameworks */,
 				2EA2946F244F877D00E468BC /* Resources */,
+				D2602982EEAC9622819C4934 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,13 +198,68 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA294B9244F8C6900E468BC /* door_close.mp3 in Resources */,
+				2EA294BC244F8C6900E468BC /* train.mp3 in Resources */,
 				2EA29481244F878400E468BC /* LaunchScreen.storyboard in Resources */,
 				2EA2947E244F878400E468BC /* Assets.xcassets in Resources */,
+				2EA294BA244F8C6900E468BC /* river.mp3 in Resources */,
+				2EA294B3244F8C6900E468BC /* pageflip.mp3 in Resources */,
+				2EA294B2244F8C6900E468BC /* park.wav in Resources */,
+				2EA294B7244F8C6900E468BC /* forest.mp3 in Resources */,
+				2EA294B8244F8C6900E468BC /* lake.wav in Resources */,
+				2EA294B5244F8C6900E468BC /* door_open.wav in Resources */,
+				2EA294BE244F8C6900E468BC /* water.mp3 in Resources */,
+				2EA294BB244F8C6900E468BC /* gravel.mp3 in Resources */,
+				2EA294BD244F8C6900E468BC /* motorway.mp3 in Resources */,
+				2EA294B4244F8C6900E468BC /* zoom_in.mp3 in Resources */,
+				2EA294B6244F8C6900E468BC /* zoom_out.mp3 in Resources */,
 				2EA2947C244F877D00E468BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D2602982EEAC9622819C4934 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6952CF4D4462A8F483CB809 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TouchExplore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2EA2946D244F877D00E468BC /* Sources */ = {
@@ -282,9 +410,11 @@
 		};
 		2EA29486244F878400E468BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B116E7E01687A3413EF52990 /* Pods-TouchExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				INFOPLIST_FILE = TouchExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -300,9 +430,11 @@
 		};
 		2EA29487244F878400E468BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A7686B56DF200BEC67A8B94 /* Pods-TouchExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				INFOPLIST_FILE = TouchExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

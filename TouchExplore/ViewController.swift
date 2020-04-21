@@ -2,19 +2,635 @@
 //  ViewController.swift
 //  TouchExplore
 //
-//  Created by Raphael Grossenbacher on 21.04.20.
+//  Created by Raphael Grossenbacher on 18.03.20.
 //  Copyright © 2020 ZHAW. All rights reserved.
 //
 
 import UIKit
+import Mapbox
+import MapboxGeocoder
+import AVFoundation
+import CoreHaptics
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
+
+    var mapView: MGLMapView!
+    var coords: CLLocationCoordinate2D!
+    var streetSoundPlayer: AVAudioPlayer!
+    var forestSoundPlayer: AVAudioPlayer!
+    var lakeSoundPlayer: AVAudioPlayer!
+    var riverSoundPlayer: AVAudioPlayer!
+    var trainSoundPlayer: AVAudioPlayer!
+    var footwaySoundPlayer: AVAudioPlayer!
+    var parkSoundPlayer: AVAudioPlayer!
+    var waterSoundPlayer: AVAudioPlayer!
+    var pageFlipSoundPlayer: AVAudioPlayer!
+    var zoomInSoundPlayer: AVAudioPlayer!
+    var zoomOutSoundPlayer: AVAudioPlayer!
+    var doorOpenSoundPlayer: AVAudioPlayer!
+    var doorCloseSoundPlayer: AVAudioPlayer!
+    var currentSoundPlayer: AVAudioPlayer!
+    var currentFeature: MGLFeature!
+    var speechSynthesizer = AVSpeechSynthesizer()
+    var speechCrossingSynthesizer = AVSpeechSynthesizer()
+    
+    var hapticEngine: CHHapticEngine!
+    
+    var streetVibrationPlayer: CHHapticAdvancedPatternPlayer!
+    var trainVibrationPlayer: CHHapticAdvancedPatternPlayer!
+    var signalVibrationPlayer: CHHapticAdvancedPatternPlayer!
+    var currentVibrationPlayer: CHHapticAdvancedPatternPlayer!
+    
+    let buildingTypes = ["building", "commercial", "construction", "apartments"]
+    
+    let crossableTypes = ["residential",
+    "street",
+    "street_limited",
+    "secondary",
+    "residential",
+    "footway",
+    "path",
+    "sidewalk",
+    "tertiary",
+    "primary",
+    "motorway",
+    "steps"]
+    
+    let railTypes = ["tram", "train"]
+    
+    let grassTypes = ["grass", "park", "meadow", "garden"]
+    
+    let forestTypes = ["forest", "wood"]
+    
+    let geocoder = Geocoder.shared
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+             shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+       // Do not begin the pan until the swipe fails.
+       if otherGestureRecognizer is UIPanGestureRecognizer && gestureRecognizer is UIPinchGestureRecognizer {
+            return true
+       } else if otherGestureRecognizer is UIPinchGestureRecognizer && gestureRecognizer is UISwipeGestureRecognizer {
+            return true
+        }
+        return false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        do {
+        streetSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "motorway", ofType: "mp3")!))
+            streetSoundPlayer.numberOfLoops = 99
+        forestSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "forest", ofType: "mp3")!))
+            forestSoundPlayer.numberOfLoops = 99
+        lakeSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "lake", ofType: "wav")!))
+            lakeSoundPlayer.numberOfLoops = 99
+        riverSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "river", ofType: "mp3")!))
+            riverSoundPlayer.numberOfLoops = 99
+        trainSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "train", ofType: "mp3")!))
+            trainSoundPlayer.numberOfLoops = 99
+        footwaySoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "gravel", ofType: "mp3")!))
+            footwaySoundPlayer.numberOfLoops = 99
+        parkSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "park", ofType: "wav")!))
+            parkSoundPlayer.numberOfLoops = 99
+        waterSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "water", ofType: "mp3")!))
+            waterSoundPlayer.numberOfLoops = 99
+        pageFlipSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "pageflip", ofType: "mp3")!))
+        zoomInSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "zoom_in", ofType: "mp3")!))
+        zoomOutSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "zoom_out", ofType: "mp3")!))
+        doorOpenSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "door_open", ofType: "wav")!))
+        doorCloseSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "door_close", ofType: "mp3")!))
+        } catch {}
+        
+        
+        let url = URL(string: "mapbox://styles/grossrap/ck7t5ognf3pqr1inyyfdwqjns/draft")
+        mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(mapView)
+        
+        coords = CLLocationCoordinate2D(latitude: 47.38198304933567, longitude: 8.538393390593114)
+        //coords = CLLocationCoordinate2D(latitude: 47.3665, longitude: 8.5415)
+        mapView.setCenter(coords, zoomLevel: 18, animated: false)
+        
+        mapView.allowsRotating = false
+        mapView.allowsZooming = false
+        mapView.allowsScrolling = false
+        mapView.allowsScrolling = false
+        mapView.allowsTilting = false
+        
+        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(handleTouch(recognizer:)))
+        pan.maximumNumberOfTouches = 1
+        pan.delegate = self
+        mapView.addGestureRecognizer(pan)
+        
+        let swipeUp = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipe(recognizer:)))
+        swipeUp.numberOfTouchesRequired = 2
+        swipeUp.direction = .up
+        pan.delegate = self
+        mapView.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipe(recognizer:)))
+        swipeDown.numberOfTouchesRequired = 2
+        swipeDown.direction = .down
+        pan.delegate = self
+        mapView.addGestureRecognizer(swipeDown)
+        
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipe(recognizer:)))
+        swipeRight.numberOfTouchesRequired = 2
+        swipeRight.direction = .right
+        pan.delegate = self
+        mapView.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(handleSwipe(recognizer:)))
+        swipeLeft.numberOfTouchesRequired = 2
+        swipeLeft.direction = .left
+        pan.delegate = self
+        mapView.addGestureRecognizer(swipeLeft)
+        
+        let pinch = UIPinchGestureRecognizer.init(target: self, action: #selector(handlePinch(recognizer:)))
+        //pinch.delegate = self
+        mapView.addGestureRecognizer(pinch)
+        
+        let twoFingerDoubleTap = UITapGestureRecognizer.init(target: self, action: #selector(handleTwoFingerDoubleTap(recognizer:)))
+        twoFingerDoubleTap.numberOfTapsRequired = 2
+        twoFingerDoubleTap.numberOfTouchesRequired = 2
+        mapView.addGestureRecognizer(twoFingerDoubleTap)
+        
+        let threeFingerDoubleTap = UILongPressGestureRecognizer.init(target: self, action: #selector(handleThreeFingerDoubleTap(recognizer:)))
+        threeFingerDoubleTap.minimumPressDuration = 0.5
+        threeFingerDoubleTap.numberOfTouchesRequired = 3
+        mapView.addGestureRecognizer(threeFingerDoubleTap)
+        
+        /*let press = UILongPressGestureRecognizer.init(target: self, action: #selector(handleTouch(recognizer:)))
+        press.minimumPressDuration = 0
+        pinch.delegate = self
+        mapView.addGestureRecognizer(press)*/
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(handleTouch(recognizer:)))
+        mapView.addGestureRecognizer(tap)
+        
+        do {
+            // (1.) Create an instance of a haptic engine.
+            hapticEngine = try CHHapticEngine()
+
+            // (2.) Start the haptic engine.
+            try self.hapticEngine.start()
+        } catch let error {
+            print("Engine Error: \(error)")
+        }
+        
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+        
+        let signalVibrationEvent = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity], relativeTime: 0)
+        let longVibrationEvent = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity], relativeTime: 0, duration: 100)
+        
+        let trainVibrationEvent1 = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity], relativeTime: 0.1, duration: 0.24)
+
+
+        do {
+            let streetPattern = try CHHapticPattern(events: [longVibrationEvent], parameters: [])
+            streetVibrationPlayer = try hapticEngine.makeAdvancedPlayer(with: streetPattern)
+            streetVibrationPlayer.loopEnabled = true
+            
+            
+            let trainPattern = try CHHapticPattern(events: [trainVibrationEvent1], parameters: [])
+            trainVibrationPlayer = try hapticEngine.makeAdvancedPlayer(with: trainPattern)
+            trainVibrationPlayer.loopEnabled = true
+            
+            let signalPattern = try CHHapticPattern(events: [signalVibrationEvent], parameters: [])
+            
+            signalVibrationPlayer = try hapticEngine.makeAdvancedPlayer(with: signalPattern)
+            signalVibrationPlayer.loopEnabled = false
+        } catch {
+            print("Failed to run taptic engine")
+        }
+        
+        synthesize(string: "Willkommen bei TouchExplore. Mit drei Fingern Bildschirm berühren für Anleitung. Bitte schalten Sie VoiceOver aus.")
     }
+    
+    func featuresAllTheSame(features: [MGLFeature]) -> Bool {
+        var allTheSame = true
+        for feature in features {
+            for secondFeature in features {
+                if(allTheSame == true){
+                    if !(NSDictionary(dictionary: feature.attributes).isEqual(to: NSDictionary(dictionary: secondFeature.attributes) as! [AnyHashable : Any])) {
+                        allTheSame = false
+                    }
+                }
+            }
+        }
+        print("same: ", allTheSame)
+        return allTheSame
+    }
+    
+    func deduplicateFeatures(features: [MGLFeature]) -> [MGLFeature] {
+        var filteredFeatures: [MGLFeature] = []
+        do {
+            filteredFeatures = try features.reduce([], {(initial: [MGLFeature], next: MGLFeature) throws -> [MGLFeature] in
+                if (initial.contains(where: { (item: MGLFeature) -> Bool in
+                    NSDictionary(dictionary: item.attributes).isEqual(to: NSDictionary(dictionary: next.attributes) as! [AnyHashable : Any])
+                })) {
+                    print("found Duplikat")
+                    return initial
+                }
+                return initial + [next]
+            })
+        } catch {
+            print("deduplication failed")
+        }
+        return filteredFeatures
+    }
+    
+    @objc func handleTwoFingerDoubleTap(recognizer: UIGestureRecognizer) {
+        let screenLocation = recognizer.location(in: mapView)
+        let coords = mapView.convert(screenLocation, toCoordinateFrom: mapView)
+        mapView.setCenter(coords, animated: false)
+        print(coords)
+        
+        let options = ReverseGeocodeOptions(coordinate: coords)
+        // Or perhaps: ReverseGeocodeOptions(location: locationManager.location)
+
+        
+        /*let task = geocoder.geocode(options) { (placemarks, attribution, error) in
+            guard let placemark = placemarks?.first else {
+                return
+            }
+
+            print(placemark.imageName ?? "")
+                // telephone
+            print(placemark.genres?.joined(separator: ", ") ?? "")
+                // computer, electronic
+            print(placemark.administrativeRegion?.name ?? "")
+                // New York
+            print(placemark.administrativeRegion?.code ?? "")
+            print(placemark.postalAddress ?? "")
+
+            print(placemark.place?.wikidataItemIdentifier ?? "")
+                // Q60
+        }*/
+        
+        getEnvironment()
+    }
+    
+    func getEnvironment() {
+        let features = mapView.visibleFeatures(in: mapView.bounds).filter { (feature) -> Bool in
+            //return feature.attributes.keys.contains("admin_level")
+            return "symbolrank" == feature.attribute(forKey: "type") as! String?
+        }.sorted { (feature1, feature2) -> Bool in
+            let rank1 = feature1.attribute(forKey: "symbolrank") as! Double
+            let rank2 = feature2.attribute(forKey: "symbolrank") as! Double
+            
+            return rank1 <= rank2
+        }
+        
+        print("*******************")
+        for feature in features {
+            print(feature.attributes)
+            print()
+        }
+        print("*******************")
+    }
+    
+    @objc func handleThreeFingerDoubleTap(recognizer: UIGestureRecognizer) {
+        if recognizer.state == .began {
+            signalVibration()
+            synthesize(string: "Ein Finger über den Bildschirm fahren zum Erkunden. Zwei Finger wischen um in die vier Himmelsrichtungen zu navigieren. Zwei Finger auf- und zusammenziehen zum Zoomen. Mit zwei Fingern doppeltippen um die Karte dort zu zentrieren. Die Applikation funktioniert ab besten, wenn VoiceOver ausgeschaltet ist. Mit drei Fingern Bildschirm berühren für Anleitung.")
+        }
+        if recognizer.state == .ended {
+            signalVibration()
+        }
+    }
+    
+    
+    
+    @objc func handleTouch(recognizer: UIGestureRecognizer) {
+        
+        if (recognizer.state != .ended && recognizer.numberOfTouches < 2){
+            
+            let point = recognizer.location(in: mapView)
+            let features = deduplicateFeatures(features: mapView.visibleFeatures(at: point))
+            
+            if (features.count > 0) {
+                print("FEATURES AT PAN")
+            }
+            for feature in features {
+                print("FEATURE:")
+                print(feature.attributes)
+            }
+            
+            // Get high priority features
+            let rails = features.filter({(item: MGLFeature) -> Bool in
+                let type = item.attribute(forKey: "type") as! String?
+                return type != nil && railTypes.contains(type!)
+                
+            })
+            
+            let streets = features.filter({(item: MGLFeature) -> Bool in
+                var type = item.attribute(forKey: "type") as! String?
+                if type == "unclassified" {
+                    type = item.attribute(forKey: "class") as! String?
+                }
+                return type != nil && crossableTypes.contains(type!)
+            })
+            
+            let buildings = features.filter({(item: MGLFeature) -> Bool in
+                let type = item.attribute(forKey: "type") as! String?
+                return type != nil && buildingTypes.contains(type!)
+            })
+            
+            let waters = features.filter({(item: MGLFeature) -> Bool in
+                return item.attributes.count == 0
+            })
+            
+            let grasses = features.filter({(item: MGLFeature) -> Bool in
+                let type = item.attribute(forKey: "type") as! String?
+                return type != nil && grassTypes.contains(type!)
+            })
+            
+            let forests = features.filter({(item: MGLFeature) -> Bool in
+                let type = item.attribute(forKey: "type") as! String?
+                return type != nil && forestTypes.contains(type!)
+            })
+
+            
+            //handle hight priority features
+            if (rails.count > 0) {
+                featureHandler(feature: rails.first!)
+            } else if (streets.count > 1) {
+                handleCrossing(streets: streets)
+            } else if (streets.count == 1) {
+                featureHandler(feature: streets.first!)
+            } else if (buildings.count >= 1) {
+                featureHandler(feature: buildings.first!)
+            } else if (waters.count > 0) {
+                featureHandler(feature: waters.first!)
+            } else if (grasses.count > 0) {
+                featureHandler(feature: grasses.first!)
+            } else if (forests.count > 0) {
+                featureHandler(feature: forests.first!)
+            } else {
+                if features.count > 0 {
+                    featureHandler(feature: features.first!)
+                }
+            }
+            
+            if features.count == 0 {
+                noFeature()
+            }
+
+        } else {
+            noFeature()
+            print(mapView.convert(recognizer.location(in: mapView), toCoordinateFrom: mapView))
+        }
+    }
+    
+    func handleCrossing(streets: [MGLFeature]) {
+        var ausgabe = "Kreuzung "
+        for street in streets {
+            let name = street.attribute(forKey: "name") as! String?
+            if (name != nil) {
+                ausgabe = ausgabe + name! + " "
+            }
+        }
+        synthesizeCrossing(string: ausgabe)
+        
+    }
+    
+    @objc func handleSwipe(recognizer: UISwipeGestureRecognizer) {
+        if (recognizer.state == .ended){
+            let currentLong = mapView.centerCoordinate.longitude
+            let currentLat = mapView.centerCoordinate.latitude
+            var coordinates = mapView.centerCoordinate
+    
+            let south = mapView.visibleCoordinateBounds.sw.latitude
+            let east = mapView.visibleCoordinateBounds.ne.longitude
+            
+            switch recognizer.direction {
+            case .up:
+                synthesize(string: "Sektor nach Süden")
+                coordinates = CLLocationCoordinate2D(latitude: currentLat - 2 * (currentLat - south), longitude: currentLong)
+            case .down:
+                synthesize(string: "Sektor nach Norden")
+                coordinates = CLLocationCoordinate2D(latitude: currentLat + 2 * (currentLat - south), longitude: currentLong)
+            case .right:
+                synthesize(string: "Sektor nach Westen")
+                coordinates = CLLocationCoordinate2D(latitude: currentLat, longitude: currentLong + 2 * (currentLong - east))
+            case .left:
+                synthesize(string: "Sektor nach Osten")
+                coordinates = CLLocationCoordinate2D(latitude: currentLat, longitude: currentLong - 2 * (currentLong - east))
+            default:
+                print("weird swipe")
+            }
+            pageFlipSoundPlayer.play()
+            mapView.setCenter(coordinates, animated: false)
+            
+        }
+    }
+    
+    @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
+        if (recognizer.state == .ended){
+            zoomInSoundPlayer.stop()
+            zoomOutSoundPlayer.stop()
+            if(recognizer.velocity > 0){
+                mapView.setZoomLevel(mapView.zoomLevel + 2, animated: false)
+                zoomInSoundPlayer.play()
+                signalVibration()
+                let ausgabe = "Zoom " + String(mapView.zoomLevel) + "-fach"
+                synthesize(string: ausgabe)
+                getEnvironment()
+            } else if recognizer.velocity < 0 {
+                print("zoom out")
+                mapView.setZoomLevel(mapView.zoomLevel - 2, animated: false)
+                zoomOutSoundPlayer.play()
+                signalVibration()
+                let ausgabe = "Zoom " + String(mapView.zoomLevel) + "-fach"
+                synthesize(string: ausgabe)
+                getEnvironment()
+            }
+            
+        }
+    }
+    
+    func featureHandler(feature: MGLFeature){
+        if currentFeature == nil || !featuresAreEqual(feature1: feature, feature2: currentFeature) {
+            featureChange(feature: feature)
+        } else {
+            currentFeature = feature
+        }
+    }
+    
+    func signalVibration() {
+        do {
+            if signalVibrationPlayer.isMuted {
+                signalVibrationPlayer.isMuted = false
+            }
+            try signalVibrationPlayer?.start(atTime: 0)
+        } catch {}
+    }
+    
+    func featureChange(feature: MGLFeature){
+        currentSoundPlayer?.pause()
+        speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
+        
+        do {
+            try currentVibrationPlayer?.pause(atTime: 0)
+        } catch {
+            print("could not stop vibration")
+        }
+        
+        if feature.attribute(forKey: "type") != nil || feature.attributes.count == 0 {
+            var type = feature.attribute(forKey: "type") as! String?
+            if feature.attributes.count == 0 {
+                type = "water"
+            }
+            if type == "unclassified" {
+                type = feature.attribute(forKey: "class") as! String?
+            }
+            
+            //close door if leave building
+            if (currentFeature != nil) {
+                let typeOfCurrentFeature = currentFeature.attribute(forKey: "type") as! String?
+                if typeOfCurrentFeature != nil && buildingTypes.contains(typeOfCurrentFeature!) {
+                    let typeOfFeature = feature.attribute(forKey: "type") as! String?
+                    if typeOfFeature != nil && !buildingTypes.contains(typeOfFeature!) {
+                        doorCloseSoundPlayer.play()
+                    }
+                }
+            }
+            
+            switch type {
+            case "street", "street_limited", "secondary", "residential", "tertiary", "track", "track:grade1", "track:grade2", "track:grade3", "track:grade4", "track:grade5", "motorway", "primary":
+                currentSoundPlayer = streetSoundPlayer
+                currentVibrationPlayer = streetVibrationPlayer
+            case "forest":
+                currentSoundPlayer = forestSoundPlayer
+            case "footway", "path", "sidewalk", "pedestrian", "steps":
+                if type == "steps" {
+                    synthesize(string: "Treppe")
+                }
+                currentSoundPlayer = footwaySoundPlayer
+            case "lake":
+                currentSoundPlayer = lakeSoundPlayer
+            case "park", "grass", "meadow", "garden":
+                currentSoundPlayer = parkSoundPlayer
+            case "river", "stream", "canal":
+                currentSoundPlayer = riverSoundPlayer
+            case "water":
+                currentSoundPlayer = waterSoundPlayer
+            case "train", "tram":
+                currentSoundPlayer = trainSoundPlayer
+                currentVibrationPlayer = trainVibrationPlayer
+            case "building", "commercial", "construction", "apartments":
+                //open door entering building
+                if (currentFeature == nil || !("building" == currentFeature.attribute(forKey: "type") as! String?)) {
+                    doorOpenSoundPlayer.play()
+                }
+            default:
+                currentSoundPlayer = nil
+                currentVibrationPlayer = nil
+            }
+            if feature.attribute(forKey: "name") != nil {
+                synthesize(string: feature.attribute(forKey: "name") as! String)
+            }
+            
+            do {
+                try currentVibrationPlayer?.start(atTime: 0)
+            } catch {
+                print("could not stop vibration")
+            }
+            currentSoundPlayer?.play()
+            signalVibration()
+            
+        } else {
+            noFeature()
+        }
+        currentFeature = feature
+    }
+    
+    
+    
+    func noFeature(){
+        //close door if leaving building
+        if currentFeature != nil {
+            let typeOfCurrentFeature = currentFeature.attribute(forKey: "type") as! String?
+            if typeOfCurrentFeature != nil && buildingTypes.contains(typeOfCurrentFeature!) {
+                doorCloseSoundPlayer.play()
+            }
+        }
+        
+        if (currentFeature != nil) {
+            signalVibration()
+        }
+        do {
+            try currentVibrationPlayer?.cancel()
+        } catch {
+            print("could not stop vibration")
+        }
+        currentVibrationPlayer = nil
+        currentSoundPlayer?.pause()
+        currentSoundPlayer = nil
+        currentFeature = nil
+        speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
+    }
+    
+    func synthesize(string: String){
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
+        }
+        let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
+        speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-CH")
+        speechSynthesizer.speak(speechUtterance)
+    }
+    
+    func synthesizeCrossing(string: String){
+        if speechCrossingSynthesizer.isSpeaking {
+            
+        } else {
+            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
+            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.75
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-CH")
+            speechCrossingSynthesizer.speak(speechUtterance)
+        }
+    }
+    
+    func featuresAreEqual(feature1: MGLFeature, feature2: MGLFeature) -> Bool {
+        if feature2.attributes.count == 0 && feature1.attributes.count > 0 {
+            print("CHANGE*******************")
+        }
 
 
+        let attributes1 = feature1.attributes.filter { (key: String, value: Any) -> Bool in
+            return key == "class" || key == "type" || key == "name"
+        }
+        
+        let attributes2 = feature2.attributes.filter { (key: String, value: Any) -> Bool in
+            return key == "class" || key == "type" || key == "name"
+        }
+        
+        var equal = true
+        
+        for attr in attributes1 {
+            if attributes2.keys.contains(attr.key){
+                if !(attr.value as! String == attributes2[attr.key] as! String) {
+                    equal = false
+                }
+            } else {
+                equal = false
+            }
+        }
+        
+        for attr in attributes2 {
+            if attributes1.keys.contains(attr.key){
+                if !(attr.value as! String == attributes1[attr.key] as! String) {
+                    equal = false
+                }
+            } else {
+                equal = false
+            }
+        }
+        return equal
+    }
 }
-
