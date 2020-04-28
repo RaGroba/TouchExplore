@@ -41,24 +41,25 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
     var signalVibrationPlayer: CHHapticAdvancedPatternPlayer!
     var currentVibrationPlayer: CHHapticAdvancedPatternPlayer!
     
-    let buildingTypes = ["building", "commercial", "construction", "apartments"]
+    let buildingTypes = ["building","apartments","farm","hotel","house","detached","residential","dormitory","terrace","houseboat","bungalow","cabin","commercial","office","industrial","retail","supermarket","warehouse","kiosk","religious","cathedral","temple","chapel","church","mosque","synagogue","shrine","civic","government","hospital","school","transportation","stadium","train_station","university","grandstand","public","barn","bridge","bunker","carport","conservatory","construction","garage","garages","farm_auxiliary","garbage_shed","greenhouse","hangar","hut","pavilion","parking","roof","sports_hall","shed","stable","service","ruins","transformer_tower","water_tower"]
     
-    let crossableTypes = ["residential",
+    let footwayTypes = ["footway","path","sidewalk","steps","track:grade1","track:grade2","track:grade3","track:grade4","track:grade5","track","corridor","sidewalk","crossing","piste","mountain_bike","hiking","trail","cycleway","footway","path","bridleway"]
+    
+    let streetTypes = ["residential",
     "street",
     "street_limited",
     "secondary",
     "residential",
-    "footway",
-    "path",
-    "sidewalk",
     "tertiary",
     "primary",
     "motorway",
-    "steps"]
+    ]
     
     let railTypes = ["tram", "train"]
     
     let grassTypes = ["grass", "park", "meadow", "garden"]
+    
+    let riverTypes = ["river", "chanel", "stream", "stream_intermittent", "drain", "ditch"]
     
     let forestTypes = ["forest", "wood"]
     
@@ -332,7 +333,7 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
                 if type == "unclassified" {
                     type = item.attribute(forKey: "class") as! String?
                 }
-                return type != nil && crossableTypes.contains(type!)
+                return type != nil && (footwayTypes.contains(type!) || streetTypes.contains(type!))
             })
             
             let buildings = features.filter({(item: MGLFeature) -> Bool in
@@ -342,6 +343,11 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
             
             let waters = features.filter({(item: MGLFeature) -> Bool in
                 return item.attributes.count == 0
+            })
+            
+            let rivers = features.filter({(item: MGLFeature) -> Bool in
+                let type = item.attribute(forKey: "type") as! String?
+                return type != nil && riverTypes.contains(type!)
             })
             
             let grasses = features.filter({(item: MGLFeature) -> Bool in
@@ -364,6 +370,8 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
                 featureHandler(feature: streets.first!)
             } else if (buildings.count >= 1) {
                 featureHandler(feature: buildings.first!)
+            } else if (rivers.count > 0) {
+                featureHandler(feature: rivers.first!)
             } else if (waters.count > 0) {
                 featureHandler(feature: waters.first!)
             } else if (grasses.count > 0) {
@@ -501,12 +509,12 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
             }
             
             switch type {
-            case "street", "street_limited", "secondary", "residential", "tertiary", "track", "track:grade1", "track:grade2", "track:grade3", "track:grade4", "track:grade5", "motorway", "primary":
+            case _ where streetTypes.contains(type!):
                 currentSoundPlayer = streetSoundPlayer
                 currentVibrationPlayer = streetVibrationPlayer
             case "forest":
                 currentSoundPlayer = forestSoundPlayer
-            case "footway", "path", "sidewalk", "pedestrian", "steps":
+            case _ where footwayTypes.contains(type!):
                 if type == "steps" {
                     synthesize(string: "Treppe")
                 }
@@ -515,16 +523,16 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
                 currentSoundPlayer = lakeSoundPlayer
             case "park", "grass", "meadow", "garden":
                 currentSoundPlayer = parkSoundPlayer
-            case "river", "stream", "canal":
+            case _ where riverTypes.contains(type!):
                 currentSoundPlayer = riverSoundPlayer
             case "water":
                 currentSoundPlayer = waterSoundPlayer
             case "train", "tram":
                 currentSoundPlayer = trainSoundPlayer
                 currentVibrationPlayer = trainVibrationPlayer
-            case "building", "commercial", "construction", "apartments":
+            case _ where buildingTypes.contains(type!):
                 //open door entering building
-                if (currentFeature == nil || !("building" == currentFeature.attribute(forKey: "type") as! String?)) {
+                if (currentFeature == nil || !(buildingTypes.contains(currentFeature.attribute(forKey: "type") as! String))) {
                     doorOpenSoundPlayer.play()
                 }
             default:
