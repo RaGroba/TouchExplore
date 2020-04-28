@@ -478,6 +478,10 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
         } catch {}
     }
     
+    
+    
+    
+    
     func featureChange(feature: MGLFeature){
         currentSoundPlayer?.pause()
         speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
