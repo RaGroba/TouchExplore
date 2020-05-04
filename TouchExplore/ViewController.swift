@@ -130,7 +130,7 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
         
         
         let url = URL(string: "mapbox://styles/grossrap/ck9lwxfs42i191ipdaaweevph/draft")
-        mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView = MGLMapViewCustom(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(mapView)
         
