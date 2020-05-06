@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 import Mapbox
 import MapboxGeocoder
 import AVFoundation
 import CoreHaptics
 
-class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate {
-
+class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate {
+    var storyBoard : UIStoryboard!
     var mapView: MGLMapView!
     var coords: CLLocationCoordinate2D!
     var streetSoundPlayer: AVAudioPlayer!
@@ -37,6 +39,8 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
     var currentFeature: MGLFeature!
     var speechSynthesizer = AVSpeechSynthesizer()
     var speechCrossingSynthesizer = AVSpeechSynthesizer()
+    
+    let locationManager = CLLocationManager()
     
     var hapticEngine: CHHapticEngine!
     
@@ -92,9 +96,30 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
         }
         return false
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    if CLLocationManager.locationServicesEnabled() {
+                        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                        locationManager.startUpdatingLocation()
+                    }
+                }
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        
         
         do {
         streetSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "motorway", ofType: "mp3")!))
@@ -244,10 +269,18 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
         } catch {
             print("Failed to run taptic engine")
         }
-        
-        synthesize(string: "Willkommen bei TouchExplore. Mit drei Fingern Bildschirm berühren für Anleitung. Bitte schalten Sie VoiceOver aus.")
+        synthesize(string: "Willkommen bei TouchExplore. Drei Finger auf Bildschirm legen für Menü.")
     }
-    
+  
+    func centerGPS() {
+        let location = locationManager.location
+        if location?.coordinate != nil {
+            setCenterTo(location: location!.coordinate)
+        } else {
+            synthesize(string: "Fehler GPS")
+        }
+    }
+ 
     func featuresAllTheSame(features: [MGLFeature]) -> Bool {
         var allTheSame = true
         for feature in features {
@@ -338,14 +371,21 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
     @objc func handleThreeFingerHold(recognizer: UIGestureRecognizer) {
         if recognizer.state == .began {
             signalVibration()
-            synthesize(string: "Ein Finger über den Bildschirm fahren zum Erkunden. Zwei Finger wischen um in die vier Himmelsrichtungen zu navigieren. Zwei Finger auf- und zusammenziehen zum Zoomen. Mit zwei Fingern doppeltippen um die Karte dort zu zentrieren. Die Applikation funktioniert ab besten, wenn VoiceOver ausgeschaltet ist. Mit drei Fingern Bildschirm berühren für Anleitung.")
+            storyBoard = UIStoryboard(name: "Main", bundle:nil)
+            let menuViewController = storyBoard.instantiateViewController(withIdentifier: "menuScene") as! MenuViewController
+            self.present(menuViewController, animated: true, completion: nil)
         }
         if recognizer.state == .ended {
             signalVibration()
         }
     }
     
+    func playInstructions(){
+        synthesize(string: "Ein Finger über den Bildschirm fahren zum Erkunden. Zwei Finger wischen, um in die vier Himmelsrichtungen zu navigieren. Zwei Finger auf- und zusammenziehen zum Zoomen. Mit zwei Fingern an gewünschtem Punkt doppeltippen, um die Karte dort zu zentrieren. Vier Finger halten für Wechsel zu interessanten Orten.")
+    }
+    
     @objc func handleFourFingerHold(recognizer: UIGestureRecognizer) {
+        
         if recognizer.state == .began {
             signalVibration()
             if coords.latitude == chinawieseCoorinates.latitude && coords.longitude == chinawieseCoorinates.longitude {
@@ -696,7 +736,7 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
             
         } else {
             let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
-            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.75
+            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
             speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-CH")
             speechCrossingSynthesizer.speak(speechUtterance)
         }

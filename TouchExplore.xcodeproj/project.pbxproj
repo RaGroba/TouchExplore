@@ -30,6 +30,7 @@
 		2EA294C2245A1FE500E468BC /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294C1245A1FE500E468BC /* stadium.mp3 */; };
 		2EA294C4245A40CE00E468BC /* tennis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294C3245A40CE00E468BC /* tennis.mp3 */; };
 		2EA294CA245A510800E468BC /* golf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EA294C9245A510800E468BC /* golf.mp3 */; };
+		2EA294D0246217E100E468BC /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA294CF246217E100E468BC /* MenuViewController.swift */; };
 		497494B8E28B7C410C25F961 /* Pods_TouchExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6C69D404FB3BFF069740F2 /* Pods_TouchExplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		2EA294C1245A1FE500E468BC /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
 		2EA294C3245A40CE00E468BC /* tennis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tennis.mp3; sourceTree = "<group>"; };
 		2EA294C9245A510800E468BC /* golf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = golf.mp3; sourceTree = "<group>"; };
+		2EA294CF246217E100E468BC /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3A7686B56DF200BEC67A8B94 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		7C6C69D404FB3BFF069740F2 /* Pods_TouchExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B116E7E01687A3413EF52990 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				2EA29474244F877D00E468BC /* AppDelegate.swift */,
 				2EA29476244F877D00E468BC /* SceneDelegate.swift */,
 				2EA29478244F877D00E468BC /* ViewController.swift */,
+				2EA294CF246217E100E468BC /* MenuViewController.swift */,
 				2EA2947A244F877D00E468BC /* Main.storyboard */,
 				2EA2947D244F878400E468BC /* Assets.xcassets */,
 				2EA2947F244F878400E468BC /* LaunchScreen.storyboard */,
@@ -285,6 +288,7 @@
 				2EA29479244F877D00E468BC /* ViewController.swift in Sources */,
 				2EA29475244F877D00E468BC /* AppDelegate.swift in Sources */,
 				2EA29477244F877D00E468BC /* SceneDelegate.swift in Sources */,
+				2EA294D0246217E100E468BC /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				INFOPLIST_FILE = TouchExplore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -438,6 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.init.touchexplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -451,7 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				INFOPLIST_FILE = TouchExplore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -459,6 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.init.touchexplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

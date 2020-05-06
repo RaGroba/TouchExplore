@@ -14,8 +14,8 @@
             filePath = "TouchExplore/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
             landmarkName = "featureChange(feature:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "TouchExplore/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "559"
-            endingLineNumber = "559"
+            startingLineNumber = "599"
+            endingLineNumber = "599"
             landmarkName = "featureChange(feature:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "TouchExplore/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
             landmarkName = "featureChange(feature:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,9 +62,165 @@
             filePath = "TouchExplore/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "setCenterTo(location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2D0595D-CA18-4956-9335-D989F55CC880"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchExplore/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - 80afcaf86e0a4cf4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.mapView.getter : Swift.Optional&lt;__C.MGLMapView&gt;"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - cfc880b3afd024c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.mapView.setter : Swift.Optional&lt;__C.MGLMapView&gt;"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - b82472a026e8c6f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.mapView.modify : Swift.Optional&lt;__C.MGLMapView&gt;"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - ffa480df6af5ef87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.mapView.modify : Swift.Optional&lt;__C.MGLMapView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - bcd92579468f87d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TouchExplore.ViewController"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "860">
+               </Location>
+               <Location
+                  uuid = "C2D0595D-CA18-4956-9335-D989F55CC880 - fb60808abef98f0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TouchExplore.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TouchExplore.ViewController&gt;"
+                  moduleName = "TouchExplore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphi/TouchExplore/TouchExplore/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "808">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54BEF50A-46B7-4D88-8068-0ED60A55E1B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchExplore/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3446640C-61DD-463C-8580-E44DC011D8F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchExplore/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "dismissMenu(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F140616-4AAC-497F-93DD-168101EF9793"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TouchExplore/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "centerGPS()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
