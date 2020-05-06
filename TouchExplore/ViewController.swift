@@ -155,10 +155,15 @@ class ViewController: UIViewController, MGLMapViewDelegate, UIGestureRecognizerD
         
         
         let url = URL(string: "mapbox://styles/grossrap/ck9lwxfs42i191ipdaaweevph/draft")
-        mapView = MGLMapView(frame: view.bounds, styleURL: url)
+        mapView = MGLMapViewCustom(frame: view.bounds, styleURL: url)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(mapView)
         
+		mapView.accessibilityActivate()
+		// mapView.accessibilityElementsHidden = true
+		mapView.isAccessibilityElement = true
+		mapView.accessibilityTraits = UIAccessibilityTraits.allowsDirectInteraction
+		
         coords = chinawieseCoorinates
         //coords = CLLocationCoordinate2D(latitude: 47.3665, longitude: 8.5415)
         mapView.setCenter(coords, zoomLevel: 18, animated: false)

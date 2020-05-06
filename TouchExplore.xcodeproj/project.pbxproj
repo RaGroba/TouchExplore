@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B648DCD24609422002F48CF /* MGLMapViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCC24609422002F48CF /* MGLMapViewCustom.swift */; };
 		2EA29475244F877D00E468BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA29474244F877D00E468BC /* AppDelegate.swift */; };
 		2EA29477244F877D00E468BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA29476244F877D00E468BC /* SceneDelegate.swift */; };
 		2EA29479244F877D00E468BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA29478244F877D00E468BC /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B648DCC24609422002F48CF /* MGLMapViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapViewCustom.swift; sourceTree = "<group>"; };
 		2EA29471244F877D00E468BC /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA29474244F877D00E468BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EA29476244F877D00E468BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				2EA2947D244F878400E468BC /* Assets.xcassets */,
 				2EA2947F244F878400E468BC /* LaunchScreen.storyboard */,
 				2EA29482244F878400E468BC /* Info.plist */,
+				2B648DCC24609422002F48CF /* MGLMapViewCustom.swift */,
 			);
 			path = TouchExplore;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA29479244F877D00E468BC /* ViewController.swift in Sources */,
+				2B648DCD24609422002F48CF /* MGLMapViewCustom.swift in Sources */,
 				2EA29475244F877D00E468BC /* AppDelegate.swift in Sources */,
 				2EA29477244F877D00E468BC /* SceneDelegate.swift in Sources */,
 				2EA294D0246217E100E468BC /* MenuViewController.swift in Sources */,
