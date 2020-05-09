@@ -1,0 +1,921 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B2471D6245B53A00092116B /* MapStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D5245B539F0092116B /* MapStore.swift */; };
+		2B2471D9245B5C890092116B /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D8245B5C890092116B /* Print.swift */; };
+		2B39D8082462B5560085EF70 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D8072462B5560085EF70 /* Handle.swift */; };
+		2B39D80B2462B81A0085EF70 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */; };
+		2B39D80D2463315F0085EF70 /* PlacesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */; };
+		2B39D80F246344230085EF70 /* PlacesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D80E246344230085EF70 /* PlacesListView.swift */; };
+		2B39D816246347A70085EF70 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D815246347A70085EF70 /* Landmark.swift */; };
+		2B648DCB24609191002F48CF /* MGLMapViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */; };
+		2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCF2460A43B002F48CF /* MGLUtils.swift */; };
+		2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656D8245471A6008E315F /* AppDelegate.swift */; };
+		2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DA245471A6008E315F /* SceneDelegate.swift */; };
+		2BB656DD245471A6008E315F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DC245471A6008E315F /* ContentView.swift */; };
+		2BB656DF245471AC008E315F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB656DE245471AC008E315F /* Assets.xcassets */; };
+		2BB656E2245471AC008E315F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB656E1245471AC008E315F /* Preview Assets.xcassets */; };
+		2BB656E5245471AC008E315F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB656E3245471AC008E315F /* LaunchScreen.storyboard */; };
+		2BB65709245471DF008E315F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB65708245471DF008E315F /* MapView.swift */; };
+		2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */; };
+		2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDB2466B37E0016254C /* zoom_in.mp3 */; };
+		2BC12BE92466B3840016254C /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDC2466B37E0016254C /* train.mp3 */; };
+		2BC12BEA2466B3840016254C /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDD2466B37E0016254C /* river.mp3 */; };
+		2BC12BEB2466B3840016254C /* motorway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDE2466B37F0016254C /* motorway.mp3 */; };
+		2BC12BEC2466B3840016254C /* lake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDF2466B3810016254C /* lake.wav */; };
+		2BC12BED2466B3840016254C /* zoom_out.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE02466B3810016254C /* zoom_out.mp3 */; };
+		2BC12BEE2466B3840016254C /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE12466B3810016254C /* forest.mp3 */; };
+		2BC12BEF2466B3840016254C /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE22466B3810016254C /* water.mp3 */; };
+		2BC12BF02466B3840016254C /* door_close.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE32466B3810016254C /* door_close.mp3 */; };
+		2BC12BF12466B3840016254C /* pageflip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE42466B3820016254C /* pageflip.mp3 */; };
+		2BC12BF22466B3840016254C /* park.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE52466B3830016254C /* park.wav */; };
+		2BC12BF32466B3840016254C /* gravel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE62466B3830016254C /* gravel.mp3 */; };
+		2BC12BF42466B3840016254C /* door_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BE72466B3840016254C /* door_open.wav */; };
+		2BC12BF92466B3DA0016254C /* golf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF52466B3D80016254C /* golf.mp3 */; };
+		2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF62466B3D80016254C /* tennis.mp3 */; };
+		2BC12BFB2466B3DA0016254C /* playground.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF72466B3DA0016254C /* playground.wav */; };
+		2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF82466B3DA0016254C /* stadium.mp3 */; };
+		2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551F92464A0C400DA4A92 /* BlurView.swift */; };
+		2BF551FC2464A0D900DA4A92 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551FB2464A0D900DA4A92 /* SearchBar.swift */; };
+		2BF551FE2464A0FB00DA4A92 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */; };
+		2C78E83F59474F57768FD85D /* Pods_TactileMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */; };
+		D4B899E1B94431BE252ECC30 /* Pods_TactileMaps_TactileMapsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */; };
+		DD8782AB41DEF6D5D2843826 /* Pods_TactileMapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BB656EC245471AC008E315F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BB656CD245471A6008E315F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BB656D4245471A6008E315F;
+			remoteInfo = TactileMaps;
+		};
+		2BB656F7245471AC008E315F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BB656CD245471A6008E315F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BB656D4245471A6008E315F;
+			remoteInfo = TactileMaps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps.debug.xcconfig"; path = "Target Support Files/Pods-TactileMaps/Pods-TactileMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps-TactileMapsUITests.debug.xcconfig"; path = "Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps-TactileMapsUITests.release.xcconfig"; path = "Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B2471D5245B539F0092116B /* MapStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStore.swift; sourceTree = "<group>"; };
+		2B2471D8245B5C890092116B /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		2B39D8072462B5560085EF70 /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchView.swift; sourceTree = "<group>"; };
+		2B39D80E246344230085EF70 /* PlacesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListView.swift; sourceTree = "<group>"; };
+		2B39D815246347A70085EF70 /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapViewCustom.swift; sourceTree = "<group>"; };
+		2B648DCF2460A43B002F48CF /* MGLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLUtils.swift; sourceTree = "<group>"; };
+		2BB656D5245471A6008E315F /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB656D8245471A6008E315F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2BB656DA245471A6008E315F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2BB656DC245471A6008E315F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2BB656DE245471AC008E315F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BB656E1245471AC008E315F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2BB656E4245471AC008E315F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2BB656E6245471AC008E315F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BB656EB245471AC008E315F /* TouchExploreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchExploreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB656F6245471AC008E315F /* TouchExploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchExploreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB65708245471DF008E315F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
+		2BC12BDB2466B37E0016254C /* zoom_in.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zoom_in.mp3; sourceTree = "<group>"; };
+		2BC12BDC2466B37E0016254C /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
+		2BC12BDD2466B37E0016254C /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = river.mp3; sourceTree = "<group>"; };
+		2BC12BDE2466B37F0016254C /* motorway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = motorway.mp3; sourceTree = "<group>"; };
+		2BC12BDF2466B3810016254C /* lake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lake.wav; sourceTree = "<group>"; };
+		2BC12BE02466B3810016254C /* zoom_out.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zoom_out.mp3; sourceTree = "<group>"; };
+		2BC12BE12466B3810016254C /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
+		2BC12BE22466B3810016254C /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
+		2BC12BE32466B3810016254C /* door_close.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door_close.mp3; sourceTree = "<group>"; };
+		2BC12BE42466B3820016254C /* pageflip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pageflip.mp3; sourceTree = "<group>"; };
+		2BC12BE52466B3830016254C /* park.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = park.wav; sourceTree = "<group>"; };
+		2BC12BE62466B3830016254C /* gravel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gravel.mp3; sourceTree = "<group>"; };
+		2BC12BE72466B3840016254C /* door_open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = door_open.wav; sourceTree = "<group>"; };
+		2BC12BF52466B3D80016254C /* golf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = golf.mp3; sourceTree = "<group>"; };
+		2BC12BF62466B3D80016254C /* tennis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tennis.mp3; sourceTree = "<group>"; };
+		2BC12BF72466B3DA0016254C /* playground.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playground.wav; sourceTree = "<group>"; };
+		2BC12BF82466B3DA0016254C /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
+		2BF551F92464A0C400DA4A92 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		2BF551FB2464A0D900DA4A92 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = /Users/dariomerz/Developer/TactileMaps/TactileMaps/Views/SearchBar.swift; sourceTree = "<absolute>"; };
+		2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = /Users/dariomerz/Developer/TactileMaps/TactileMaps/Views/SearchBar.swift; sourceTree = "<absolute>"; };
+		3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMapsTests.release.xcconfig"; path = "Target Support Files/Pods-TactileMapsTests/Pods-TactileMapsTests.release.xcconfig"; sourceTree = "<group>"; };
+		921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMapsTests.debug.xcconfig"; path = "Target Support Files/Pods-TactileMapsTests/Pods-TactileMapsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps.release.xcconfig"; path = "Target Support Files/Pods-TactileMaps/Pods-TactileMaps.release.xcconfig"; sourceTree = "<group>"; };
+		BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMaps_TactileMapsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2BB656D2245471A6008E315F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C78E83F59474F57768FD85D /* Pods_TactileMaps.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656E8245471AC008E315F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD8782AB41DEF6D5D2843826 /* Pods_TactileMapsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656F3245471AC008E315F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4B899E1B94431BE252ECC30 /* Pods_TactileMaps_TactileMapsUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B2471D7245B5C780092116B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B2471D8245B5C890092116B /* Print.swift */,
+				2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2B39D8052462B52A0085EF70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BF551F624649FE700DA4A92 /* Effects */,
+				2B39D8062462B52F0085EF70 /* Elements */,
+				2B39D80E246344230085EF70 /* PlacesListView.swift */,
+				2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */,
+				2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */,
+				2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */,
+				2BF551FB2464A0D900DA4A92 /* SearchBar.swift */,
+				2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */,
+				2BB65708245471DF008E315F /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2B39D8062462B52F0085EF70 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				2B39D8072462B5560085EF70 /* Handle.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		2B39D812246345D10085EF70 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B39D815246347A70085EF70 /* Landmark.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B39D81724634CCC0085EF70 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2B2471D5245B539F0092116B /* MapStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		2B648DCE2460A42E002F48CF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2B648DCF2460A43B002F48CF /* MGLUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2BB656CC245471A6008E315F = {
+			isa = PBXGroup;
+			children = (
+				2BB656D7245471A6008E315F /* TouchExplore */,
+				2BB656D6245471A6008E315F /* Products */,
+				C050641CB123C936B721FFBC /* Pods */,
+				59E47CDBE91D44FD397FC2BE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2BB656D6245471A6008E315F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BB656D5245471A6008E315F /* TouchExplore.app */,
+				2BB656EB245471AC008E315F /* TouchExploreTests.xctest */,
+				2BB656F6245471AC008E315F /* TouchExploreUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2BB656D7245471A6008E315F /* TouchExplore */ = {
+			isa = PBXGroup;
+			children = (
+				2BC12BD92466B2CC0016254C /* Resources */,
+				2B39D81724634CCC0085EF70 /* Store */,
+				2B39D812246345D10085EF70 /* Models */,
+				2B39D8052462B52A0085EF70 /* Views */,
+				2B648DCE2460A42E002F48CF /* Utils */,
+				2B2471D7245B5C780092116B /* Extensions */,
+				2BB656D8245471A6008E315F /* AppDelegate.swift */,
+				2BB656DA245471A6008E315F /* SceneDelegate.swift */,
+				2BB656DC245471A6008E315F /* ContentView.swift */,
+				2BB656E3245471AC008E315F /* LaunchScreen.storyboard */,
+				2BB656E6245471AC008E315F /* Info.plist */,
+				2BB656E0245471AC008E315F /* Preview Content */,
+			);
+			path = TouchExplore;
+			sourceTree = "<group>";
+		};
+		2BB656E0245471AC008E315F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2BB656E1245471AC008E315F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2BC12BD92466B2CC0016254C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BC12BDA2466B35D0016254C /* Audio */,
+				2BB656DE245471AC008E315F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2BC12BDA2466B35D0016254C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				2BC12BE32466B3810016254C /* door_close.mp3 */,
+				2BC12BE72466B3840016254C /* door_open.wav */,
+				2BC12BE12466B3810016254C /* forest.mp3 */,
+				2BC12BE62466B3830016254C /* gravel.mp3 */,
+				2BC12BDF2466B3810016254C /* lake.wav */,
+				2BC12BDE2466B37F0016254C /* motorway.mp3 */,
+				2BC12BE42466B3820016254C /* pageflip.mp3 */,
+				2BC12BE52466B3830016254C /* park.wav */,
+				2BC12BDD2466B37E0016254C /* river.mp3 */,
+				2BC12BF52466B3D80016254C /* golf.mp3 */,
+				2BC12BF72466B3DA0016254C /* playground.wav */,
+				2BC12BF82466B3DA0016254C /* stadium.mp3 */,
+				2BC12BF62466B3D80016254C /* tennis.mp3 */,
+				2BC12BDC2466B37E0016254C /* train.mp3 */,
+				2BC12BE22466B3810016254C /* water.mp3 */,
+				2BC12BDB2466B37E0016254C /* zoom_in.mp3 */,
+				2BC12BE02466B3810016254C /* zoom_out.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		2BF551F624649FE700DA4A92 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				2BF551F92464A0C400DA4A92 /* BlurView.swift */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
+		59E47CDBE91D44FD397FC2BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */,
+				BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */,
+				3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C050641CB123C936B721FFBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */,
+				9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */,
+				2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */,
+				28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */,
+				921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */,
+				54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2BB656D4245471A6008E315F /* TouchExplore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BB656FF245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExplore" */;
+			buildPhases = (
+				93BD6277D26FA68666B641E5 /* [CP] Check Pods Manifest.lock */,
+				2BB656D1245471A6008E315F /* Sources */,
+				2BB656D2245471A6008E315F /* Frameworks */,
+				2BB656D3245471A6008E315F /* Resources */,
+				5A208CE52760ADD5E3A9B26A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchExplore;
+			productName = TactileMaps;
+			productReference = 2BB656D5245471A6008E315F /* TouchExplore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2BB656EA245471AC008E315F /* TouchExploreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BB65702245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreTests" */;
+			buildPhases = (
+				6825E7BCD8CA6BA414DF4C48 /* [CP] Check Pods Manifest.lock */,
+				2BB656E7245471AC008E315F /* Sources */,
+				2BB656E8245471AC008E315F /* Frameworks */,
+				2BB656E9245471AC008E315F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BB656ED245471AC008E315F /* PBXTargetDependency */,
+			);
+			name = TouchExploreTests;
+			productName = TactileMapsTests;
+			productReference = 2BB656EB245471AC008E315F /* TouchExploreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2BB656F5245471AC008E315F /* TouchExploreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BB65705245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreUITests" */;
+			buildPhases = (
+				6A5EAC1D2A8BE8DF59AA3B6D /* [CP] Check Pods Manifest.lock */,
+				2BB656F2245471AC008E315F /* Sources */,
+				2BB656F3245471AC008E315F /* Frameworks */,
+				2BB656F4245471AC008E315F /* Resources */,
+				08E3F9EE68006E3D2A1A9965 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BB656F8245471AC008E315F /* PBXTargetDependency */,
+			);
+			name = TouchExploreUITests;
+			productName = TactileMapsUITests;
+			productReference = 2BB656F6245471AC008E315F /* TouchExploreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2BB656CD245471A6008E315F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Dario Merz";
+				TargetAttributes = {
+					2BB656D4245471A6008E315F = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					2BB656EA245471AC008E315F = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 2BB656D4245471A6008E315F;
+					};
+					2BB656F5245471AC008E315F = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 2BB656D4245471A6008E315F;
+					};
+				};
+			};
+			buildConfigurationList = 2BB656D0245471A6008E315F /* Build configuration list for PBXProject "TouchExplore" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2BB656CC245471A6008E315F;
+			productRefGroup = 2BB656D6245471A6008E315F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2BB656D4245471A6008E315F /* TouchExplore */,
+				2BB656EA245471AC008E315F /* TouchExploreTests */,
+				2BB656F5245471AC008E315F /* TouchExploreUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2BB656D3245471A6008E315F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */,
+				2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */,
+				2BC12BFB2466B3DA0016254C /* playground.wav in Resources */,
+				2BC12BF12466B3840016254C /* pageflip.mp3 in Resources */,
+				2BC12BF02466B3840016254C /* door_close.mp3 in Resources */,
+				2BC12BEC2466B3840016254C /* lake.wav in Resources */,
+				2BC12BEF2466B3840016254C /* water.mp3 in Resources */,
+				2BC12BF32466B3840016254C /* gravel.mp3 in Resources */,
+				2BC12BE92466B3840016254C /* train.mp3 in Resources */,
+				2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */,
+				2BC12BF92466B3DA0016254C /* golf.mp3 in Resources */,
+				2BC12BEE2466B3840016254C /* forest.mp3 in Resources */,
+				2BB656E5245471AC008E315F /* LaunchScreen.storyboard in Resources */,
+				2BC12BED2466B3840016254C /* zoom_out.mp3 in Resources */,
+				2BC12BEA2466B3840016254C /* river.mp3 in Resources */,
+				2BB656E2245471AC008E315F /* Preview Assets.xcassets in Resources */,
+				2BB656DF245471AC008E315F /* Assets.xcassets in Resources */,
+				2BC12BF22466B3840016254C /* park.wav in Resources */,
+				2BC12BF42466B3840016254C /* door_open.wav in Resources */,
+				2BC12BEB2466B3840016254C /* motorway.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656E9245471AC008E315F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656F4245471AC008E315F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08E3F9EE68006E3D2A1A9965 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A208CE52760ADD5E3A9B26A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6825E7BCD8CA6BA414DF4C48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TactileMapsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A5EAC1D2A8BE8DF59AA3B6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TactileMaps-TactileMapsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93BD6277D26FA68666B641E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TactileMaps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BB656D1245471A6008E315F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */,
+				2B39D80D2463315F0085EF70 /* PlacesSearchView.swift in Sources */,
+				2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */,
+				2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */,
+				2B2471D9245B5C890092116B /* Print.swift in Sources */,
+				2B39D80F246344230085EF70 /* PlacesListView.swift in Sources */,
+				2BF551FC2464A0D900DA4A92 /* SearchBar.swift in Sources */,
+				2BB65709245471DF008E315F /* MapView.swift in Sources */,
+				2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */,
+				2B39D80B2462B81A0085EF70 /* BottomSheetView.swift in Sources */,
+				2B648DCB24609191002F48CF /* MGLMapViewCustom.swift in Sources */,
+				2BB656DD245471A6008E315F /* ContentView.swift in Sources */,
+				2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */,
+				2B2471D6245B53A00092116B /* MapStore.swift in Sources */,
+				2B39D8082462B5560085EF70 /* Handle.swift in Sources */,
+				2BF551FE2464A0FB00DA4A92 /* SearchBar.swift in Sources */,
+				2B39D816246347A70085EF70 /* Landmark.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656E7245471AC008E315F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BB656F2245471AC008E315F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BB656ED245471AC008E315F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BB656D4245471A6008E315F /* TouchExplore */;
+			targetProxy = 2BB656EC245471AC008E315F /* PBXContainerItemProxy */;
+		};
+		2BB656F8245471AC008E315F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BB656D4245471A6008E315F /* TouchExplore */;
+			targetProxy = 2BB656F7245471AC008E315F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2BB656E3245471AC008E315F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BB656E4245471AC008E315F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2BB656FD245471AC008E315F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2BB656FE245471AC008E315F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2BB65700245471AC008E315F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TactileMaps/Preview Content\"";
+				DEVELOPMENT_TEAM = PQ9M73T7N8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TactileMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMaps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BB65701245471AC008E315F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"TactileMaps/Preview Content\"";
+				DEVELOPMENT_TEAM = PQ9M73T7N8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = TactileMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMaps;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BB65703245471AC008E315F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TC47QR88G;
+				INFOPLIST_FILE = TactileMapsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TouchExplore.app/TouchExplore";
+			};
+			name = Debug;
+		};
+		2BB65704245471AC008E315F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TC47QR88G;
+				INFOPLIST_FILE = TactileMapsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TouchExplore.app/TouchExplore";
+			};
+			name = Release;
+		};
+		2BB65706245471AC008E315F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TC47QR88G;
+				INFOPLIST_FILE = TactileMapsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TactileMaps;
+			};
+			name = Debug;
+		};
+		2BB65707245471AC008E315F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TC47QR88G;
+				INFOPLIST_FILE = TactileMapsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TactileMaps;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BB656D0245471A6008E315F /* Build configuration list for PBXProject "TouchExplore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BB656FD245471AC008E315F /* Debug */,
+				2BB656FE245471AC008E315F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BB656FF245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExplore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BB65700245471AC008E315F /* Debug */,
+				2BB65701245471AC008E315F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BB65702245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BB65703245471AC008E315F /* Debug */,
+				2BB65704245471AC008E315F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BB65705245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BB65706245471AC008E315F /* Debug */,
+				2BB65707245471AC008E315F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2BB656CD245471A6008E315F /* Project object */;
+}
