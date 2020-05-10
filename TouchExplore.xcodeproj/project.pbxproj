@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2656F7151C83792719822CE3 /* Pods_TouchExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111177C314C92EFA7B1D8B58 /* Pods_TouchExplore.framework */; };
 		2B2471D6245B53A00092116B /* MapStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D5245B539F0092116B /* MapStore.swift */; };
 		2B2471D9245B5C890092116B /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D8245B5C890092116B /* Print.swift */; };
 		2B39D8082462B5560085EF70 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D8072462B5560085EF70 /* Handle.swift */; };
@@ -41,12 +42,8 @@
 		2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF62466B3D80016254C /* tennis.mp3 */; };
 		2BC12BFB2466B3DA0016254C /* playground.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF72466B3DA0016254C /* playground.wav */; };
 		2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF82466B3DA0016254C /* stadium.mp3 */; };
+		2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BFD246802AB0016254C /* SearchBar.swift */; };
 		2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551F92464A0C400DA4A92 /* BlurView.swift */; };
-		2BF551FC2464A0D900DA4A92 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551FB2464A0D900DA4A92 /* SearchBar.swift */; };
-		2BF551FE2464A0FB00DA4A92 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */; };
-		2C78E83F59474F57768FD85D /* Pods_TactileMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */; };
-		D4B899E1B94431BE252ECC30 /* Pods_TactileMaps_TactileMapsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */; };
-		DD8782AB41DEF6D5D2843826 /* Pods_TactileMapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,21 +52,20 @@
 			containerPortal = 2BB656CD245471A6008E315F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2BB656D4245471A6008E315F;
-			remoteInfo = TactileMaps;
+			remoteInfo = TouchExplore;
 		};
 		2BB656F7245471AC008E315F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2BB656CD245471A6008E315F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2BB656D4245471A6008E315F;
-			remoteInfo = TactileMaps;
+			remoteInfo = TouchExplore;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps.debug.xcconfig"; path = "Target Support Files/Pods-TactileMaps/Pods-TactileMaps.debug.xcconfig"; sourceTree = "<group>"; };
-		2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps-TactileMapsUITests.debug.xcconfig"; path = "Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps-TactileMapsUITests.release.xcconfig"; path = "Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0D2CA8C61BE418E7046B4F29 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
+		111177C314C92EFA7B1D8B58 /* Pods_TouchExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B2471D5245B539F0092116B /* MapStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStore.swift; sourceTree = "<group>"; };
 		2B2471D8245B5C890092116B /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		2B39D8072462B5560085EF70 /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
@@ -108,15 +104,11 @@
 		2BC12BF62466B3D80016254C /* tennis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tennis.mp3; sourceTree = "<group>"; };
 		2BC12BF72466B3DA0016254C /* playground.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playground.wav; sourceTree = "<group>"; };
 		2BC12BF82466B3DA0016254C /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
+		2BC12BFD246802AB0016254C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2BF551F92464A0C400DA4A92 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		2BF551FB2464A0D900DA4A92 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = /Users/dariomerz/Developer/TactileMaps/TactileMaps/Views/SearchBar.swift; sourceTree = "<absolute>"; };
-		2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = /Users/dariomerz/Developer/TactileMaps/TactileMaps/Views/SearchBar.swift; sourceTree = "<absolute>"; };
-		3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMapsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMapsTests.release.xcconfig"; path = "Target Support Files/Pods-TactileMapsTests/Pods-TactileMapsTests.release.xcconfig"; sourceTree = "<group>"; };
-		921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMapsTests.debug.xcconfig"; path = "Target Support Files/Pods-TactileMapsTests/Pods-TactileMapsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TactileMaps.release.xcconfig"; path = "Target Support Files/Pods-TactileMaps/Pods-TactileMaps.release.xcconfig"; sourceTree = "<group>"; };
-		BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMaps_TactileMapsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TactileMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A7C3302E05E0614CA775494 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
+		B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
+		B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C78E83F59474F57768FD85D /* Pods_TactileMaps.framework in Frameworks */,
+				2656F7151C83792719822CE3 /* Pods_TouchExplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +124,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD8782AB41DEF6D5D2843826 /* Pods_TactileMapsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B899E1B94431BE252ECC30 /* Pods_TactileMaps_TactileMapsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,11 +153,10 @@
 				2B39D8062462B52F0085EF70 /* Elements */,
 				2B39D80E246344230085EF70 /* PlacesListView.swift */,
 				2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */,
-				2BF551FD2464A0FB00DA4A92 /* SearchBar.swift */,
 				2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */,
-				2BF551FB2464A0D900DA4A92 /* SearchBar.swift */,
 				2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */,
 				2BB65708245471DF008E315F /* MapView.swift */,
+				2BC12BFD246802AB0016254C /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,8 +223,8 @@
 				2B648DCE2460A42E002F48CF /* Utils */,
 				2B2471D7245B5C780092116B /* Extensions */,
 				2BB656D8245471A6008E315F /* AppDelegate.swift */,
-				2BB656DA245471A6008E315F /* SceneDelegate.swift */,
 				2BB656DC245471A6008E315F /* ContentView.swift */,
+				2BB656DA245471A6008E315F /* SceneDelegate.swift */,
 				2BB656E3245471AC008E315F /* LaunchScreen.storyboard */,
 				2BB656E6245471AC008E315F /* Info.plist */,
 				2BB656E0245471AC008E315F /* Preview Content */,
@@ -295,9 +284,7 @@
 		59E47CDBE91D44FD397FC2BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C04D9DB34C7FCD16F0E8362A /* Pods_TactileMaps.framework */,
-				BE1CF01F39AC0BA3940B9707 /* Pods_TactileMaps_TactileMapsUITests.framework */,
-				3BD06A5A781BD00301E0E78A /* Pods_TactileMapsTests.framework */,
+				111177C314C92EFA7B1D8B58 /* Pods_TouchExplore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -305,12 +292,10 @@
 		C050641CB123C936B721FFBC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */,
-				9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */,
-				2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */,
-				28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */,
-				921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */,
-				54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */,
+				0D2CA8C61BE418E7046B4F29 /* Pods-TouchExplore.debug.xcconfig */,
+				9A7C3302E05E0614CA775494 /* Pods-TouchExplore.release.xcconfig */,
+				B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */,
+				B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -333,7 +318,7 @@
 			dependencies = (
 			);
 			name = TouchExplore;
-			productName = TactileMaps;
+			productName = TouchExplore;
 			productReference = 2BB656D5245471A6008E315F /* TouchExplore.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -341,7 +326,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BB65702245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreTests" */;
 			buildPhases = (
-				6825E7BCD8CA6BA414DF4C48 /* [CP] Check Pods Manifest.lock */,
 				2BB656E7245471AC008E315F /* Sources */,
 				2BB656E8245471AC008E315F /* Frameworks */,
 				2BB656E9245471AC008E315F /* Resources */,
@@ -352,7 +336,7 @@
 				2BB656ED245471AC008E315F /* PBXTargetDependency */,
 			);
 			name = TouchExploreTests;
-			productName = TactileMapsTests;
+			productName = TouchExploreTests;
 			productReference = 2BB656EB245471AC008E315F /* TouchExploreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -360,11 +344,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BB65705245471AC008E315F /* Build configuration list for PBXNativeTarget "TouchExploreUITests" */;
 			buildPhases = (
-				6A5EAC1D2A8BE8DF59AA3B6D /* [CP] Check Pods Manifest.lock */,
 				2BB656F2245471AC008E315F /* Sources */,
 				2BB656F3245471AC008E315F /* Frameworks */,
 				2BB656F4245471AC008E315F /* Resources */,
-				08E3F9EE68006E3D2A1A9965 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,7 +354,7 @@
 				2BB656F8245471AC008E315F /* PBXTargetDependency */,
 			);
 			name = TouchExploreUITests;
-			productName = TactileMapsUITests;
+			productName = TouchExploreUITests;
 			productReference = 2BB656F6245471AC008E315F /* TouchExploreUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -464,82 +446,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08E3F9EE68006E3D2A1A9965 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TactileMaps-TactileMapsUITests/Pods-TactileMaps-TactileMapsUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5A208CE52760ADD5E3A9B26A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TactileMaps/Pods-TactileMaps-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6825E7BCD8CA6BA414DF4C48 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TactileMapsTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6A5EAC1D2A8BE8DF59AA3B6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TactileMaps-TactileMapsUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TouchExplore/Pods-TouchExplore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		93BD6277D26FA68666B641E5 /* [CP] Check Pods Manifest.lock */ = {
@@ -557,7 +478,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TactileMaps-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TouchExplore-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -576,8 +497,8 @@
 				2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */,
 				2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */,
 				2B2471D9245B5C890092116B /* Print.swift in Sources */,
+				2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */,
 				2B39D80F246344230085EF70 /* PlacesListView.swift in Sources */,
-				2BF551FC2464A0D900DA4A92 /* SearchBar.swift in Sources */,
 				2BB65709245471DF008E315F /* MapView.swift in Sources */,
 				2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */,
 				2B39D80B2462B81A0085EF70 /* BottomSheetView.swift in Sources */,
@@ -586,7 +507,6 @@
 				2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */,
 				2B2471D6245B53A00092116B /* MapStore.swift in Sources */,
 				2B39D8082462B5560085EF70 /* Handle.swift in Sources */,
-				2BF551FE2464A0FB00DA4A92 /* SearchBar.swift in Sources */,
 				2B39D816246347A70085EF70 /* Landmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,19 +668,19 @@
 		};
 		2BB65700245471AC008E315F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D2CA8C61BE418E7046B4F29 /* Pods-TactileMaps.debug.xcconfig */;
+			baseConfigurationReference = B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"TactileMaps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TouchExplore/Preview Content\"";
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TactileMaps/Info.plist;
+				INFOPLIST_FILE = TouchExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMaps;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -769,19 +689,19 @@
 		};
 		2BB65701245471AC008E315F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A7C3302E05E0614CA775494 /* Pods-TactileMaps.release.xcconfig */;
+			baseConfigurationReference = B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"TactileMaps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TouchExplore/Preview Content\"";
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = TactileMaps/Info.plist;
+				INFOPLIST_FILE = TouchExplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMaps;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -790,20 +710,19 @@
 		};
 		2BB65703245471AC008E315F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 921032A2F104CA0FE2258502 /* Pods-TactileMapsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TC47QR88G;
-				INFOPLIST_FILE = TactileMapsTests/Info.plist;
+				INFOPLIST_FILE = TouchExploreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExploreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -813,20 +732,19 @@
 		};
 		2BB65704245471AC008E315F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54F90B7A3545D0E55975152B /* Pods-TactileMapsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TC47QR88G;
-				INFOPLIST_FILE = TactileMapsTests/Info.plist;
+				INFOPLIST_FILE = TouchExploreTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExploreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -836,43 +754,41 @@
 		};
 		2BB65706245471AC008E315F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2021BD7006C4F4DD507CA689 /* Pods-TactileMaps-TactileMapsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TC47QR88G;
-				INFOPLIST_FILE = TactileMapsUITests/Info.plist;
+				INFOPLIST_FILE = TouchExploreUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExploreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TactileMaps;
+				TEST_TARGET_NAME = TouchExplore;
 			};
 			name = Debug;
 		};
 		2BB65707245471AC008E315F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28861DA903CFE8BF33F99A26 /* Pods-TactileMaps-TactileMapsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8TC47QR88G;
-				INFOPLIST_FILE = TactileMapsUITests/Info.plist;
+				INFOPLIST_FILE = TouchExploreUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TactileMapsUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.dariomerz.TouchExploreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TactileMaps;
+				TEST_TARGET_NAME = TouchExplore;
 			};
 			name = Release;
 		};
