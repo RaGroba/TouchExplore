@@ -3,28 +3,20 @@ import Mapbox
 import AVKit
 
 struct ContentView: View {
-	@State var state: MapStore = MapStore()
-	
-	@State var locationManager = CLLocationManager()
-	
-	@State var input:String = ""
+	@EnvironmentObject var env: MapStore
+	@ObservedObject var placesSearchViewModel: PlacesSearchViewModel = PlacesSearchViewModel()
 	@State var isSettingsOpen = false
 	
-	var mapView: MapView!
-	
-	init() {
-		// somehow we have to use mapView via a var, otherwise visibleFeatures(at) would always return an empty array
-		self.mapView = MapView(locationManager: $locationManager, zoom: self.$state.zoomLevel, features: self.$state.features)
-	}
+	let locationManager = CLLocationManager()
 	
     var body: some View {
 		GeometryReader { geometry in
 			ZStack {
 				Group {
-					self.mapView.zoomLevel(self.state.zoomLevel).edgesIgnoringSafeArea(.all)
+					MapView(locationManager: self.locationManager, zoomLevel: self.$env.zoomLevel, features: self.$env.features, centerCoordinate: self.$env.centerCoordinate).edgesIgnoringSafeArea(.all)
 				}.accessibility(hidden: true)
 				BottomSheetView(isOpen: self.$isSettingsOpen, maxHeight: geometry.size.height * 0.93) {
-					PlacesSearchView()
+					PlacesSearchView(viewModel: self.placesSearchViewModel)
 				}.accessibilityElement(children: .contain)
 			}
 		}.edgesIgnoringSafeArea(.all)
@@ -33,8 +25,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-		ContentView()
-			
+		ContentView().environmentObject(MapStore())
     }
 }
 

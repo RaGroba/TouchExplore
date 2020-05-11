@@ -1,8 +1,9 @@
 import Foundation
 import MapKit
+import CoreLocation
 
 struct Landmark: Identifiable {
-	let placemark: MKPlacemark
+	let placemark: CLPlacemark
 
 	var id: UUID {
 		return UUID()
@@ -15,13 +16,9 @@ struct Landmark: Identifiable {
 	var country: String? {
 		return self.placemark.country
 	}
-	
-	var title: String {
-		return self.placemark.title ?? ""
-	}
-	
+		
 	var coordinate: CLLocationCoordinate2D {
-		return self.placemark.coordinate
+		return self.placemark.location!.coordinate
 	}
 	
 	var locality: String? {

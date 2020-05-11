@@ -4,9 +4,11 @@ import AVFoundation
 import CoreHaptics
 import SwiftUI
 
-class MapStore:ObservableObject {
+final class MapStore:ObservableObject {
 	
 	private let interactionHandler = MapInteractionHandler();
+	
+	@Published var testText: String = ""
 	
 	@Published var features:[MGLFeature] = [MGLFeature]() {
 		didSet {
@@ -39,7 +41,9 @@ class MapStore:ObservableObject {
 		}
 	}
 
-    private var speaker = SpeechSynthesizer()
+	@Published var centerCoordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 47.3686498, longitude: 8.5391825)
+	
+    private let speaker = SpeechSynthesizer()
 	
 	private func speakZoomlevel(zoomLevel: Double) {
 		let roundedZoom = Int(zoomLevel.rounded())

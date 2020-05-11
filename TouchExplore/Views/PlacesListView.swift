@@ -3,9 +3,12 @@ import MapKit
 
 struct PlacesListView: View {
 	var landmarks:[Landmark]
+
+	var onTapAction: (Landmark) -> Void
 	
-	init(landmarks: [Landmark]) {
+	init(landmarks: [Landmark], onTapAction: @escaping (Landmark) -> Void) {
 		self.landmarks = landmarks
+		self.onTapAction = onTapAction
 		
 		UIScrollView.appearance().bounces = false
 	}
@@ -23,7 +26,7 @@ struct PlacesListView: View {
 			}
 			.id(landmark.id)
 			.onTapGesture {
-				print("Click on \(landmark)")
+				self.onTapAction(landmark)
 			}
 		}.id(UUID()).animation(nil)
 	}
@@ -31,6 +34,8 @@ struct PlacesListView: View {
 
 struct PlacesListView_Previews: PreviewProvider {
     static var previews: some View {
-		PlacesListView(landmarks: [])
+		PlacesListView(landmarks: [], onTapAction: { landmark in
+			print("on tap:", landmark)
+		})
     }
 }

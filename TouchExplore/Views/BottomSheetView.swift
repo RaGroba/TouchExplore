@@ -37,7 +37,6 @@ struct BottomSheetView<Content: View>: View {
                 self.content
 				
 			}
-//			.padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom)
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
 			.background(Color(.secondarySystemBackground))
 			.cornerRadius(Constants.radius, antialiased: true)

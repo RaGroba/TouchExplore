@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Handle : View {
     private let height = CGFloat(5.0)
-	private let action: () -> Void
+	private var action: () -> Void
 	
 	init(action: @escaping () -> Void) {
 		self.action = action

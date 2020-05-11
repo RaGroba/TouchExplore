@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SearchBar: UIViewRepresentable {
-    @Binding var text: String
+	@Binding var text: String
 
 	let searchBar:UISearchBar = UISearchBar(frame: .zero)
 	
@@ -11,17 +11,17 @@ struct SearchBar: UIViewRepresentable {
 		searchBar.placeholder = placeholder
 	}
 	
-    class Coordinator: NSObject, UISearchBarDelegate {
+	class Coordinator: NSObject, UISearchBarDelegate {
 
-        @Binding var text: String
+		@Binding var text: String
 
-        init(text: Binding<String>) {
-            _text = text
-        }
+		init(text: Binding<String>) {
+			_text = text
+		}
 
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            text = searchText
-        }
+		func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+			text = searchText
+		}
 		
 		func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 			text = ""
@@ -33,34 +33,34 @@ struct SearchBar: UIViewRepresentable {
 		}
 		
 		func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-            searchBar.setShowsCancelButton(true, animated: true)
+			searchBar.setShowsCancelButton(true, animated: true)
 		
 			return true
 		}
 		
 		func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-            searchBar.setShowsCancelButton(false, animated: true)
+			searchBar.setShowsCancelButton(false, animated: true)
 			
 			return true
 		}
 		
-    }
+	}
 	
-    func makeCoordinator() -> SearchBar.Coordinator {
-        return Coordinator(text: $text)
-    }
+	func makeCoordinator() -> SearchBar.Coordinator {
+		return Coordinator(text: $text)
+	}
 
-    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
-        searchBar.delegate = context.coordinator
+	func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
+		searchBar.delegate = context.coordinator
 		
-        searchBar.autocapitalizationType = .none
+		searchBar.autocapitalizationType = .none
 		
-        return searchBar
-    }
+		return searchBar
+	}
 
-    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
-        uiView.text = text
-    }
+	func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
+		uiView.text = text
+	}
 	
 	func style(_ style: UISearchBar.Style) -> SearchBar {
 		searchBar.searchBarStyle = style

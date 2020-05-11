@@ -9,18 +9,21 @@ struct MapView: UIViewRepresentable {
 		
 		return MGLStyle.streetsStyleURL
     }
+
+	var locationManager: CLLocationManager
 	
-	
-	@Binding var locationManager: CLLocationManager
-	@Binding var zoom:Double
+	@Binding var zoomLevel:Double
 	@Binding var features:[MGLFeature]
+	@Binding var centerCoordinate:CLLocationCoordinate2D
 	
-	let mapView: MGLMapView = MGLMapViewCustom(frame: .zero, styleURL: MapView.styleURL)
+	private let mapView: MGLMapView = MGLMapViewCustom(frame: .zero, styleURL: MapView.styleURL)
     
     // MARK: - Configuring UIViewRepresentable protocol
     
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MGLMapView {
-        mapView.delegate = context.coordinator
+		mapView.delegate = context.coordinator
+		
+		print("Remake UI View")
 		
 		self.enableUserLocationTracking()
 		self.disableInteractions()
@@ -30,6 +33,15 @@ struct MapView: UIViewRepresentable {
 		return mapView
     }
 	
+    func makeCoordinator() -> MapView.Coordinator {
+		Coordinator(self, map: mapView)
+    }
+    	
+    func updateUIView(_ view: MGLMapView, context: UIViewRepresentableContext<MapView>) {
+		view.zoomLevel = self.zoomLevel
+		view.setCenter(self.centerCoordinate, animated: false)
+	}
+    
 	private func enableUserLocationTracking() {
 		mapView.showsUserLocation = true
 		mapView.locationManager.setDesiredAccuracy?(kCLLocationAccuracyBest)
@@ -62,45 +74,19 @@ struct MapView: UIViewRepresentable {
 		let moveGesture = UIPanGestureRecognizer(target: mapView.delegate, action: #selector(Coordinator.onTouchMove))
 		target.addGestureRecognizer(moveGesture)
 	}
-    
-    func updateUIView(_ view: MGLMapView, context: UIViewRepresentableContext<MapView>) {
-
-	}
-    
-    func makeCoordinator() -> MapView.Coordinator {
-		Coordinator(self, map: mapView)
-    }
-    	
+	
     // MARK: - Configuring MGLMapView
     func styleURL(_ styleURL: URL) -> MapView {
         mapView.styleURL = styleURL
 		
         return self
     }
-    
-    func centerCoordinate(_ centerCoordinate: CLLocationCoordinate2D) -> MapView {
-        mapView.centerCoordinate = centerCoordinate
-		
-        return self
-    }
-    	
-    func zoomLevel(_ zoomLevel: Double) -> MapView {
-        mapView.zoomLevel = zoomLevel
-
-		return self
-    }
-
-	func queryRenderedFeatures(at: CGPoint, onChanged: @escaping ([MGLFeature]) -> Void) -> MapView {
-		onChanged(mapView.visibleFeatures(at: at))
-
-		return self
-	}
 
     // MARK: - Implementing MGLMapViewDelegate
     
 	final class Coordinator: NSObject, MGLMapViewDelegate, UIGestureRecognizerDelegate {
-        var parent: MapView
-		var map: MGLMapView
+        private var parent: MapView
+		private var map: MGLMapView
         
 		init(_ parent: MapView, map: MGLMapView) {
             self.parent = parent
@@ -119,7 +105,8 @@ struct MapView: UIViewRepresentable {
 		}
 		
 		func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
-			parent.zoom = mapView.zoomLevel;
+			self.parent.zoomLevel = mapView.zoomLevel
+			self.parent.centerCoordinate = mapView.centerCoordinate
 		}
 
 		@objc func onDoubleTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -152,7 +139,7 @@ struct MapView: UIViewRepresentable {
 			} else {
 				let point = gestureRecognizer.location(in: map)
 				let visibleFeatures = map.visibleFeatures(at: point)
-				
+
 				parent.features = visibleFeatures
 			}
 		}
