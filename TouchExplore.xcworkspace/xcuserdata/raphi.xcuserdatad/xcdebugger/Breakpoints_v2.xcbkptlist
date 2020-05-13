@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "599"
             endingLineNumber = "599"
-            landmarkName = "featureChange(feature:)"
+            landmarkName = "signalVibration()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "326"
             endingLineNumber = "326"
-            landmarkName = "setCenterTo(location:)"
+            landmarkName = "handleTwoFingerDoubleTap(recognizer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -220,7 +220,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "276"
             endingLineNumber = "276"
-            landmarkName = "centerGPS()"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
