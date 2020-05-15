@@ -1,32 +1,89 @@
 import SwiftUI
 
 struct DisabilitySimulatorConfigView: View {
-	@State var myopia: Double = 0
-	@State var colors: Double = 0
-	@State var contrast: Double = 100
+	@ObservedObject var vm: DisabilitySimulatorConfigViewModel = DisabilitySimulatorConfigViewModel()
 	
 	var body: some View {
-		Form {
-			Section(header: Text("Myopia")) {
+		return Form {
+			Section(header: Text("Sichtbarkeit (Transparenz)")) {
 				HStack {
-					Slider(value: self.$myopia, in: 0...20, step: 1)
-					Text("\(Int(self.myopia))px")
+					Toggle("Karte visuell ausblenden", isOn: self.$vm.isHidden)
+				}
+				HStack {
+					Slider(value: self.$vm.blindness, in: 0...100, step: 1)
+					Text("\(Int(self.vm.blindness))%")
+				}.disabled(self.vm.isHidden)
+			}
+			Section(header: Text("Myopie (Blur)")) {
+				HStack {
+					Slider(value: self.$vm.myopia, in: 0...20, step: 1)
+					Text("\(Int(self.vm.myopia))px")
 				}
 			}
-			Section(header: Text("Colors (Grayscale)")) {
+			Section(header: Text("Grayscale")) {
 				HStack {
-					Slider(value: self.$colors, in: 0...100, step: 1)
-					Text("\(Int(self.colors))%")
+					Slider(value: self.$vm.colors, in: 1...100, step: 1)
+					Text("\(Int(self.vm.colors))%")
 				}
 			}
-			Section(header: Text("Contrast")) {
+			Section(header: Text("Kontrast")) {
 				HStack {
-					Slider(value: self.$contrast, in: 0...100, step: 1)
-					Text("\(Int(self.contrast))%")
+					Slider(value: self.$vm.contrast, in: 1...100, step: 1)
+					Text("\(Int(self.vm.contrast))%")
 				}
 			}
-		}.blur(radius: CGFloat(self.myopia)).grayscale(self.colors)
+			
+			Section(header: Text("Vorschau")) {
+				HStack {
+					Spacer()
+					Group {
+						Image(decorative: "map-example")
+							.resizable()
+							.aspectRatio(contentMode: .fill)
+							.frame(width: 300, height: 250.0, alignment: .center)
+							.clipped()
+							.blur(radius: CGFloat(self.vm.myopia))
+							.grayscale(self.vm.colors / 100)
+							.contrast(1 - self.vm.contrast / 100)
+							.opacity(1 - self.vm.blindness / 100)
+					}.frame(width: 300, height: 250.0, alignment: .center)
+						.clipped()
+					Spacer()
+				}.padding(.top).padding(.bottom)
+			}
+		}
     }
+}
+//
+//extension View {
+//    func disabilitySimulator() -> some View {
+//        self.modifier(DisabilitySimulator())
+//    }
+//}
+//
+//struct DisabilitySimulator: ViewModifier {
+//	@ObservedObject var vm: DisabilitySimulatorConfigViewModel = DisabilitySimulatorConfigViewModel()
+//
+//    func body(content: Content) -> some View {
+//        content
+//			.blur(radius: CGFloat(self.vm.myopia))
+//			.grayscale(self.vm.colors / 100)
+//			.contrast(1 - self.vm.contrast / 100)
+//			.opacity(1 - self.vm.blindness / 100)
+//    }
+//}
+
+class DisabilitySimulatorConfigViewModel: ObservableObject, Identifiable {
+	@Published var myopia: Double = 0
+	@Published var colors: Double = 0
+	@Published var contrast: Double = 1
+	@Published var blindness: Double = 0
+	
+	@Published var isHidden: Bool = false {
+		didSet {
+			self.blindness = self.isHidden ? 100 : 0
+		}
+	}
 }
 
 struct DisabilitySimulatorConfigView_Previews: PreviewProvider {

@@ -1,71 +1,96 @@
 import SwiftUI
 import Mapbox
 import AVKit
+import UIKit
 
 struct ContentView: View {
 	@EnvironmentObject var env: MapStore
 	@ObservedObject var placesSearchViewModel: PlacesSearchViewModel = PlacesSearchViewModel()
-	@State var isSettingsOpen = false
 	
-	@EnvironmentObject var setting: Settings
+	@State var isMapInteractive:Bool = false
+	@State var isSettingsOpen = false
 	
 	let locationManager = CLLocationManager()
 	
-    var body: some View {
+	@State var isDisabilitySimulatorPresented: Bool = false
+	
+	var body: some View {
 		GeometryReader { geometry in
 			ZStack {
 				Group {
-					MapView(locationManager: self.locationManager, zoomLevel: self.$env.zoomLevel, features: self.$env.features, centerCoordinate: self.$env.centerCoordinate).edgesIgnoringSafeArea(.all)
-				}.accessibility(hidden: true)
-				BottomSheetView(isOpen: self.$isSettingsOpen, maxHeight: geometry.size.height * 0.93) {
-					VStack {
-						PlacesSearchView(viewModel: self.placesSearchViewModel)
-						DisabilitySimulatorConfigView()
-					}
-				}.accessibilityElement(children: .contain)
-
+					Group {
+						MapView(locationManager: self.locationManager, zoomLevel: self.$env.zoomLevel, features: self.$env.features, centerCoordinate: self.$env.centerCoordinate).edgesIgnoringSafeArea(.all)
+					}.accessibility(hidden: !self.isMapInteractive)
+						.accessibilityElement(children: .combine).accessibility(addTraits: .allowsDirectInteraction)
+					
+				}
+				
+				// Map Controls
 				VStack {
 					HStack {
 						Spacer()
-						Button(action: { }) {
-							Image(systemName: "wrench")
-								.modifier(MapButton(backgroundColor: .primary))
-								.accessibility(label: Text("Einstellungen"))
-						}
-						.padding(.trailing)
+						VStack {
+							Button(action: {
+								self.isDisabilitySimulatorPresented = true
+							}) {
+								Image(systemName: "wrench")
+									.modifier(MapButton())
+									.accessibility(label: Text("Simulator"))
+							}.sheet(isPresented: self.$isDisabilitySimulatorPresented) {
+								NavigationView {
+									VStack {
+										DisabilitySimulatorConfigView()
+									}.navigationBarTitle(Text("Disability Simulator"), displayMode: .inline).navigationBarItems(trailing:
+										Button(
+											action: {
+												self.isDisabilitySimulatorPresented = false
+												
+										}) {
+											Text("Schliessen")
+										}
+									)
+								}
+							}
+							Button(action: {
+							}) {
+								Image(systemName: "location.fill")
+									.modifier(MapButton())
+									.accessibility(label: Text("Aktueller Standort einblenden"))
+							}
+						}.padding(.trailing, 8)
 					}
-					.padding(.top)
 					Spacer()
 				}
+				
+				// Search Sheet
+				BottomSheetView(isOpen: self.$isSettingsOpen, maxHeight: geometry.size.height * 0.93) {
+					VStack {
+						PlacesSearchView(viewModel: self.placesSearchViewModel)
+					}
+				}.accessibilityElement(children: .contain).edgesIgnoringSafeArea(.all)
 			}
-		}.edgesIgnoringSafeArea(.all)
+		}
 	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		ContentView().environmentObject(MapStore())
-    }
-}
-
-extension View {
-    func Print(_ vars: Any...) -> some View {
-        for v in vars { print(v) }
-        return EmptyView()
-    }
+	}
 }
 
 fileprivate struct MapButton: ViewModifier {
-
-    let backgroundColor: Color
-    var fontColor: Color = Color(UIColor.systemBackground)
-
-    func body(content: Content) -> some View {
-        content
-            .padding()
-            .background(self.backgroundColor.opacity(0.9))
-            .foregroundColor(self.fontColor)
-            .clipShape(Circle())
-    }
-
+	
+	let backgroundColor: Color = Color(UIColor.systemGroupedBackground)
+	var fontColor: Color = Color.white
+	
+	func body(content: Content) -> some View {
+		content
+			.padding()
+			.background(self.backgroundColor.opacity(0.9))
+			.foregroundColor(self.fontColor)
+			.clipShape(Circle())
+			.shadow(radius: 8)
+	}
+	
 }

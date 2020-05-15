@@ -23,8 +23,6 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MGLMapView {
 		mapView.delegate = context.coordinator
 		
-		print("Remake UI View")
-		
 		self.enableUserLocationTracking()
 		self.disableInteractions()
 		self.setAccessiblityProperties()
@@ -47,9 +45,10 @@ struct MapView: UIViewRepresentable {
 		mapView.locationManager.setDesiredAccuracy?(kCLLocationAccuracyBest)
 	}
 	
-	private func setAccessiblityProperties() {
-		mapView.accessibilityActivate()
-		mapView.isAccessibilityElement = true
+	private func setAccessiblityProperties() {		
+//		mapView.accessibilityActivate()
+		mapView.accessibilityElementsHidden = true
+		mapView.isAccessibilityElement = false
 		mapView.accessibilityTraits = UIAccessibilityTraits.allowsDirectInteraction
 	}
 	
@@ -98,7 +97,6 @@ struct MapView: UIViewRepresentable {
 	
 			mapView.setCenter((mapView.userLocation?.coordinate)!, animated: false)
 		}
-		
 		
 		func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
 			print("didFinishLoading");

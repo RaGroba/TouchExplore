@@ -13,7 +13,6 @@
 		2B1389EA246DBCB100E1A6F3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1389E9246DBCB100E1A6F3 /* RootView.swift */; };
 		2B1389EC246DC09000E1A6F3 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1389EB246DC09000E1A6F3 /* ViewRouter.swift */; };
 		2B2471D6245B53A00092116B /* MapStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D5245B539F0092116B /* MapStore.swift */; };
-		2B2471D9245B5C890092116B /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2471D8245B5C890092116B /* Print.swift */; };
 		2B39D8082462B5560085EF70 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D8072462B5560085EF70 /* Handle.swift */; };
 		2B39D80B2462B81A0085EF70 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */; };
 		2B39D80D2463315F0085EF70 /* PlacesSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */; };
@@ -23,6 +22,8 @@
 		2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCF2460A43B002F48CF /* MGLUtils.swift */; };
 		2B81857E2469DF04007B7244 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81857D2469DF04007B7244 /* DemoView.swift */; };
 		2B818580246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81857F246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift */; };
+		2B97F2F2246E90F8000982A7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97F2F1246E90F8000982A7 /* Print.swift */; };
+		2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B97F2F4246E980F000982A7 /* map-example.jpeg */; };
 		2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656D8245471A6008E315F /* AppDelegate.swift */; };
 		2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DA245471A6008E315F /* SceneDelegate.swift */; };
 		2BB656DD245471A6008E315F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DC245471A6008E315F /* ContentView.swift */; };
@@ -30,7 +31,7 @@
 		2BB656E2245471AC008E315F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB656E1245471AC008E315F /* Preview Assets.xcassets */; };
 		2BB656E5245471AC008E315F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB656E3245471AC008E315F /* LaunchScreen.storyboard */; };
 		2BB65709245471DF008E315F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB65708245471DF008E315F /* MapView.swift */; };
-		2BBC7A02246858B7007F0988 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC7A01246858B7007F0988 /* Settings.swift */; };
+		2BBC7A02246858B7007F0988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC7A01246858B7007F0988 /* AppState.swift */; };
 		2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */; };
 		2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDB2466B37E0016254C /* zoom_in.mp3 */; };
 		2BC12BE92466B3840016254C /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDC2466B37E0016254C /* train.mp3 */; };
@@ -78,7 +79,6 @@
 		2B1389E9246DBCB100E1A6F3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		2B1389EB246DC09000E1A6F3 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		2B2471D5245B539F0092116B /* MapStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStore.swift; sourceTree = "<group>"; };
-		2B2471D8245B5C890092116B /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		2B39D8072462B5560085EF70 /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchView.swift; sourceTree = "<group>"; };
@@ -88,6 +88,8 @@
 		2B648DCF2460A43B002F48CF /* MGLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLUtils.swift; sourceTree = "<group>"; };
 		2B81857D2469DF04007B7244 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		2B81857F246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabilitySimulatorConfigView.swift; sourceTree = "<group>"; };
+		2B97F2F1246E90F8000982A7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		2B97F2F4246E980F000982A7 /* map-example.jpeg */ = {isa = PBXFileReference; explicitFileType = image.jpeg; path = "map-example.jpeg"; sourceTree = "<group>"; };
 		2BB656D5245471A6008E315F /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB656D8245471A6008E315F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB656DA245471A6008E315F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		2BB656EB245471AC008E315F /* TouchExploreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchExploreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB656F6245471AC008E315F /* TouchExploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchExploreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB65708245471DF008E315F /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		2BBC7A01246858B7007F0988 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		2BBC7A01246858B7007F0988 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
 		2BC12BDB2466B37E0016254C /* zoom_in.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zoom_in.mp3; sourceTree = "<group>"; };
 		2BC12BDC2466B37E0016254C /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
@@ -173,7 +175,6 @@
 		2B2471D7245B5C780092116B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2B2471D8245B5C890092116B /* Print.swift */,
 				2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */,
 			);
 			path = Extensions;
@@ -182,6 +183,7 @@
 		2B39D8052462B52A0085EF70 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B97F2F0246E90E1000982A7 /* Helpers */,
 				2BF551F624649FE700DA4A92 /* Effects */,
 				2B39D8062462B52F0085EF70 /* Elements */,
 				2B39D80E246344230085EF70 /* PlacesListView.swift */,
@@ -217,7 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				2B2471D5245B539F0092116B /* MapStore.swift */,
-				2BBC7A01246858B7007F0988 /* Settings.swift */,
+				2BBC7A01246858B7007F0988 /* AppState.swift */,
+				2B1389EB246DC09000E1A6F3 /* ViewRouter.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -228,6 +231,22 @@
 				2B648DCF2460A43B002F48CF /* MGLUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2B97F2F0246E90E1000982A7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2B97F2F1246E90F8000982A7 /* Print.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2B97F2F3246E9803000982A7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2B97F2F4246E980F000982A7 /* map-example.jpeg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		2BB656CC245471A6008E315F = {
@@ -264,7 +283,6 @@
 				2BB656E3245471AC008E315F /* LaunchScreen.storyboard */,
 				2BB656E6245471AC008E315F /* Info.plist */,
 				2BB656E0245471AC008E315F /* Preview Content */,
-				2B1389EB246DC09000E1A6F3 /* ViewRouter.swift */,
 			);
 			path = TouchExplore;
 			sourceTree = "<group>";
@@ -280,6 +298,7 @@
 		2BC12BD92466B2CC0016254C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B97F2F3246E9803000982A7 /* Images */,
 				2BC12BDA2466B35D0016254C /* Audio */,
 				2BB656DE245471AC008E315F /* Assets.xcassets */,
 			);
@@ -446,6 +465,7 @@
 				2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */,
 				2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */,
 				2BC12BFB2466B3DA0016254C /* playground.wav in Resources */,
+				2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */,
 				2BC12BF12466B3840016254C /* pageflip.mp3 in Resources */,
 				2BC12BF02466B3840016254C /* door_close.mp3 in Resources */,
 				2BC12BEC2466B3840016254C /* lake.wav in Resources */,
@@ -533,10 +553,9 @@
 				2B39D80D2463315F0085EF70 /* PlacesSearchView.swift in Sources */,
 				2B1389EC246DC09000E1A6F3 /* ViewRouter.swift in Sources */,
 				2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */,
-				2BBC7A02246858B7007F0988 /* Settings.swift in Sources */,
+				2BBC7A02246858B7007F0988 /* AppState.swift in Sources */,
 				2B1389E4246C800E00E1A6F3 /* LocationSelect.swift in Sources */,
 				2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */,
-				2B2471D9245B5C890092116B /* Print.swift in Sources */,
 				2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */,
 				2B39D80F246344230085EF70 /* PlacesListView.swift in Sources */,
 				2BB65709245471DF008E315F /* MapView.swift in Sources */,
@@ -548,6 +567,7 @@
 				2B1389E8246C8B3200E1A6F3 /* IntroView.swift in Sources */,
 				2BB656DD245471A6008E315F /* ContentView.swift in Sources */,
 				2B81857E2469DF04007B7244 /* DemoView.swift in Sources */,
+				2B97F2F2246E90F8000982A7 /* Print.swift in Sources */,
 				2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */,
 				2B2471D6245B53A00092116B /* MapStore.swift in Sources */,
 				2B39D8082462B5560085EF70 /* Handle.swift in Sources */,
