@@ -71,7 +71,16 @@ struct MapView: UIViewRepresentable {
 		
 		// Touchmove: detect current feature
 		let moveGesture = UIPanGestureRecognizer(target: mapView.delegate, action: #selector(Coordinator.onTouchMove))
+		moveGesture.maximumNumberOfTouches = 1
 		target.addGestureRecognizer(moveGesture)
+		
+		// Two-Finger swipe: navigate by sector/page
+		for direction in [UISwipeGestureRecognizer.Direction.left, UISwipeGestureRecognizer.Direction.right, UISwipeGestureRecognizer.Direction.up, UISwipeGestureRecognizer.Direction.down] {
+			let twoFingerSwipeGesture = UISwipeGestureRecognizer(target: mapView.delegate, action: #selector(Coordinator.onTwoFingerSwipe))
+			twoFingerSwipeGesture.numberOfTouchesRequired = 2
+			twoFingerSwipeGesture.direction = direction
+			target.addGestureRecognizer(twoFingerSwipeGesture)
+		}
 	}
 	
     // MARK: - Configuring MGLMapView
@@ -81,6 +90,26 @@ struct MapView: UIViewRepresentable {
         return self
     }
 
+	func moveMapBySector(to: UISwipeGestureRecognizer.Direction) {
+		let bounds = mapView.visibleCoordinateBounds
+
+		let currentLong = mapView.centerCoordinate.longitude
+		let currentLat = mapView.centerCoordinate.latitude
+		
+		let deltaHeight = abs(bounds.sw.longitude - bounds.ne.longitude)
+		let deltaWidth = abs(bounds.sw.latitude - bounds.ne.latitude)
+		
+		if (to == .left) {
+			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat, longitude: currentLong + deltaHeight), animated: true)
+		} else if (to == .right) {
+			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat, longitude: currentLong - deltaHeight), animated: true)
+		} else if (to == .up) {
+			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat - deltaWidth, longitude: currentLong), animated: true)
+		} else if (to == .down) {
+			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat + deltaWidth, longitude: currentLong), animated: true)
+		}
+	}
+	
     // MARK: - Implementing MGLMapViewDelegate
     
 	final class Coordinator: NSObject, MGLMapViewDelegate, UIGestureRecognizerDelegate {
@@ -139,6 +168,14 @@ struct MapView: UIViewRepresentable {
 				let visibleFeatures = map.visibleFeatures(at: point)
 
 				parent.features = visibleFeatures
+			}
+		}
+		
+		@objc func onTwoFingerSwipe(gestureRecognizer: UISwipeGestureRecognizer) {
+			guard gestureRecognizer.view != nil else { return }
+			
+			if (gestureRecognizer.state == .recognized) {
+				parent.moveMapBySector(to: gestureRecognizer.direction)
 			}
 		}
 	}
