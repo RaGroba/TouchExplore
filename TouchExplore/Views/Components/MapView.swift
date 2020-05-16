@@ -1,5 +1,6 @@
 import SwiftUI
 import Mapbox
+import AVFoundation
 
 struct MapView: UIViewRepresentable {	
     private static var styleURL: URL {
@@ -108,6 +109,9 @@ struct MapView: UIViewRepresentable {
 		} else if (to == .down) {
 			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat + deltaWidth, longitude: currentLong), animated: true)
 		}
+
+		UIAccessibility.post(notification: UIAccessibility.Notification.pageScrolled,
+							 argument: "");
 	}
 	
     // MARK: - Implementing MGLMapViewDelegate
@@ -133,6 +137,7 @@ struct MapView: UIViewRepresentable {
 		
 		func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {
 			self.parent.zoomLevel = mapView.zoomLevel
+		
 			self.parent.centerCoordinate = mapView.centerCoordinate
 		}
 
@@ -144,6 +149,9 @@ struct MapView: UIViewRepresentable {
 			let coordinates:CLLocationCoordinate2D = map.convert(screenLocation, toCoordinateFrom: map)
 		
 			map.setCenter(coordinates, animated: true)
+			
+			UIAccessibility.post(notification: UIAccessibility.Notification.pageScrolled,
+								 argument: "");
 		}
 		
 		@objc func onPinched(gestureRecognizer: UIPinchGestureRecognizer) {
@@ -174,7 +182,7 @@ struct MapView: UIViewRepresentable {
 		@objc func onTwoFingerSwipe(gestureRecognizer: UISwipeGestureRecognizer) {
 			guard gestureRecognizer.view != nil else { return }
 			
-			if (gestureRecognizer.state == .recognized) {
+			if (gestureRecognizer.state == .ended) {
 				parent.moveMapBySector(to: gestureRecognizer.direction)
 			}
 		}
