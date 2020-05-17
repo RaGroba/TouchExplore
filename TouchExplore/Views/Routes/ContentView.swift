@@ -52,6 +52,7 @@ struct ContentView: View {
 								}
 							}
 							Button(action: {
+								self.env.centerCoordinate = self.locationManager.location?.coordinate as! CLLocationCoordinate2D
 							}) {
 								Image(systemName: "location.fill")
 									.modifier(MapButton())
