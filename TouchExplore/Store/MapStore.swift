@@ -48,10 +48,13 @@ final class MapStore:ObservableObject {
 	private let speaker = SpeechSynthesizer()
 	
 	private func speakZoomlevel(zoomLevel: Double) {
-		let roundedZoom = Int(zoomLevel.rounded())
-		let text = "Zoom \(roundedZoom)x"
+		let roundedZoom: Int = Int(zoomLevel.rounded())
+		let text: String = "Zoom \(roundedZoom)x"
 		
-		speaker.speak(text: text);
+		UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
+							 argument: text);
+
+//		speaker.speak(text: text);
 	}
 	
 	private func speakFeature(text: String) {
