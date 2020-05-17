@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct DisabilitySimulatorConfigView: View {
-	@ObservedObject var vm: DisabilitySimulatorConfigViewModel = DisabilitySimulatorConfigViewModel()
+struct DisabilitySimulatorView: View {
+	@ObservedObject var vm: DisabilitySimulatorViewModel
 	
 	var body: some View {
 		return Form {
@@ -42,10 +42,7 @@ struct DisabilitySimulatorConfigView: View {
 							.aspectRatio(contentMode: .fill)
 							.frame(width: 300, height: 250.0, alignment: .center)
 							.clipped()
-							.blur(radius: CGFloat(self.vm.myopia))
-							.grayscale(self.vm.colors / 100)
-							.contrast(1 - self.vm.contrast / 100)
-							.opacity(1 - self.vm.blindness / 100)
+							.disabilitySimulator(vm: self.vm)
 					}.frame(width: 300, height: 250.0, alignment: .center)
 						.clipped()
 					Spacer()
@@ -54,26 +51,27 @@ struct DisabilitySimulatorConfigView: View {
 		}
     }
 }
-//
-//extension View {
-//    func disabilitySimulator() -> some View {
-//        self.modifier(DisabilitySimulator())
-//    }
-//}
-//
-//struct DisabilitySimulator: ViewModifier {
-//	@ObservedObject var vm: DisabilitySimulatorConfigViewModel = DisabilitySimulatorConfigViewModel()
-//
-//    func body(content: Content) -> some View {
-//        content
-//			.blur(radius: CGFloat(self.vm.myopia))
-//			.grayscale(self.vm.colors / 100)
-//			.contrast(1 - self.vm.contrast / 100)
-//			.opacity(1 - self.vm.blindness / 100)
-//    }
-//}
 
-class DisabilitySimulatorConfigViewModel: ObservableObject, Identifiable {
+
+extension View {
+	func disabilitySimulator(vm: DisabilitySimulatorViewModel) -> some View {
+		self.modifier(DisabilitySimulator(vm: vm))
+    }
+}
+
+struct DisabilitySimulator: ViewModifier {
+	@ObservedObject var vm: DisabilitySimulatorViewModel
+
+    func body(content: Content) -> some View {
+        content
+			.blur(radius: CGFloat(self.vm.myopia))
+			.grayscale(self.vm.colors / 100)
+			.contrast(1 - self.vm.contrast / 100)
+			.opacity(1 - self.vm.blindness / 100)
+    }
+}
+
+class DisabilitySimulatorViewModel: ObservableObject, Identifiable {
 	@Published var myopia: Double = 0
 	@Published var colors: Double = 0
 	@Published var contrast: Double = 1
@@ -88,6 +86,6 @@ class DisabilitySimulatorConfigViewModel: ObservableObject, Identifiable {
 
 struct DisabilitySimulatorConfigView_Previews: PreviewProvider {
     static var previews: some View {
-        DisabilitySimulatorConfigView()
+		DisabilitySimulatorView(vm: DisabilitySimulatorViewModel())
     }
 }
