@@ -344,11 +344,13 @@ class MapInteractionHandler {
 			$0.attribute(forKey: "name") as? String
 		})))
 		
-		let sentence = streetNames.reduce("Kreuzung") {
-			"\($0) \($1)"
+		if streetNames.count > 0 {
+			let sentence = streetNames.reduce("Kreuzung") {
+				"\($0) \($1)"
+			}
+			
+			synthesizeCrossing(string: sentence)
 		}
-		
-        synthesizeCrossing(string: sentence)
 	}
 	
 	
