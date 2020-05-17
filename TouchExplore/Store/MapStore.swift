@@ -4,7 +4,9 @@ import AVFoundation
 import CoreHaptics
 import SwiftUI
 
+
 final class MapStore:ObservableObject {
+	
 	
 	private let interactionHandler = MapInteractionHandler();
 	
@@ -338,14 +340,15 @@ class MapInteractionHandler {
     }
     
     func handleCrossing(streets: [MGLFeature]) {
-        var ausgabe = "Kreuzung "
-        for street in streets {
-            let name = street.attribute(forKey: "name") as! String?
-            if (name != nil) {
-                ausgabe = ausgabe + name! + " "
-            }
-        }
-        synthesizeCrossing(string: ausgabe)
+		let streetNames: [String] = Array(Set(streets.compactMap({
+			$0.attribute(forKey: "name") as? String
+		})))
+		
+		let sentence = streetNames.reduce("Kreuzung") {
+			"\($0) \($1)"
+		}
+		
+        synthesizeCrossing(string: sentence)
     }
     
 
