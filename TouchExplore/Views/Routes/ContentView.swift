@@ -6,6 +6,7 @@ import UIKit
 struct ContentView: View {
 	@EnvironmentObject var env: MapStore
 	@ObservedObject var placesSearchViewModel: PlacesSearchViewModel = PlacesSearchViewModel()
+	@ObservedObject var disabilitySimulatorViewModel: DisabilitySimulatorViewModel = DisabilitySimulatorViewModel()
 	
 	@State var isMapInteractive:Bool = false
 	@State var isSettingsOpen = false
@@ -21,8 +22,9 @@ struct ContentView: View {
 					Group {
 						MapView(locationManager: self.locationManager, zoomLevel: self.$env.zoomLevel, features: self.$env.features, centerCoordinate: self.$env.centerCoordinate).edgesIgnoringSafeArea(.all)
 					}.accessibility(hidden: !self.isMapInteractive)
-						.accessibilityElement(children: .combine).accessibility(addTraits: .allowsDirectInteraction)
-					
+						.accessibilityElement(children: .combine)
+						.accessibility(addTraits: .allowsDirectInteraction)
+						.disabilitySimulator(vm: self.disabilitySimulatorViewModel)
 				}
 				
 				// Map Controls
@@ -35,18 +37,21 @@ struct ContentView: View {
 							}) {
 								Image(systemName: "wrench")
 									.modifier(MapButton())
-									.accessibility(label: Text("Simulator"))
+									.accessibility(label: Text("Disability Simulator"))
 							}.sheet(isPresented: self.$isDisabilitySimulatorPresented) {
 								NavigationView {
 									VStack {
-										DisabilitySimulatorConfigView()
-									}.navigationBarTitle(Text("Disability Simulator"), displayMode: .inline).navigationBarItems(trailing:
-										Button(
-											action: {
-												self.isDisabilitySimulatorPresented = false
-												
+										DisabilitySimulatorView(vm: self.disabilitySimulatorViewModel)
+									}.navigationBarTitle(Text("Disability Simulator"), displayMode: .inline).navigationBarItems(
+										leading: Button(action: {
+											self.isDisabilitySimulatorPresented = false
 										}) {
-											Text("Schliessen")
+											Text("Abbrechen")
+										},
+										trailing: Button(action: {
+											self.isDisabilitySimulatorPresented = false
+										}) {
+											Text("Speichern").fontWeight(.semibold)
 										}
 									)
 								}
