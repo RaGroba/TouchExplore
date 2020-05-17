@@ -11,25 +11,25 @@ struct DisabilitySimulatorView: View {
 				}
 				HStack {
 					Slider(value: self.$vm.blindness, in: 0...100, step: 1)
-					Text("\(Int(self.vm.blindness))%")
+					Text("\(Int(self.vm.blindness))%").accessibility(hidden: true)
 				}.disabled(self.vm.isHidden)
 			}
 			Section(header: Text("Myopie (Blur)")) {
 				HStack {
-					Slider(value: self.$vm.myopia, in: 0...20, step: 1)
-					Text("\(Int(self.vm.myopia))px")
+					Slider(value: self.$vm.myopia, in: 0...20, step: 1).accessibility(value: Text("\(Int(self.vm.myopia))"))
+					Text("\(Int(self.vm.myopia))px").accessibility(hidden: true)
 				}
 			}
 			Section(header: Text("Grayscale")) {
 				HStack {
 					Slider(value: self.$vm.colors, in: 1...100, step: 1)
-					Text("\(Int(self.vm.colors))%")
+					Text("\(Int(self.vm.colors))%").accessibility(hidden: true)
 				}
 			}
 			Section(header: Text("Kontrast")) {
 				HStack {
 					Slider(value: self.$vm.contrast, in: 1...100, step: 1)
-					Text("\(Int(self.vm.contrast))%")
+					Text("\(Int(self.vm.contrast))%").accessibility(hidden: true)
 				}
 			}
 			
