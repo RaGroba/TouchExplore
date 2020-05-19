@@ -52,6 +52,7 @@
 		2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF82466B3DA0016254C /* stadium.mp3 */; };
 		2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BFD246802AB0016254C /* SearchBar.swift */; };
 		2BF551FA2464A0C400DA4A92 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF551F92464A0C400DA4A92 /* BlurView.swift */; };
+		2EE53BFD24747B5000FB7B90 /* Tram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2EE53BFC24747B5000FB7B90 /* Tram.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		2BC12BF82466B3DA0016254C /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
 		2BC12BFD246802AB0016254C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2BF551F92464A0C400DA4A92 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		2EE53BFC24747B5000FB7B90 /* Tram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tram.mp3; sourceTree = "<group>"; };
 		9A7C3302E05E0614CA775494 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				2BC12BE32466B3810016254C /* door_close.mp3 */,
+				2EE53BFC24747B5000FB7B90 /* Tram.mp3 */,
 				2BC12BE72466B3840016254C /* door_open.wav */,
 				2BC12BE12466B3810016254C /* forest.mp3 */,
 				2BC12BE62466B3830016254C /* gravel.mp3 */,
@@ -470,6 +473,7 @@
 				2BC12BF02466B3840016254C /* door_close.mp3 in Resources */,
 				2BC12BEC2466B3840016254C /* lake.wav in Resources */,
 				2BC12BEF2466B3840016254C /* water.mp3 in Resources */,
+				2EE53BFD24747B5000FB7B90 /* Tram.mp3 in Resources */,
 				2BC12BF32466B3840016254C /* gravel.mp3 in Resources */,
 				2BC12BE92466B3840016254C /* train.mp3 in Resources */,
 				2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */,
