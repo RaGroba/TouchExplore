@@ -5,7 +5,7 @@ import SwiftUI
 class ViewRouter: ObservableObject {	
 	let objectWillChange = PassthroughSubject<ViewRouter,Never>()
 	
-	var currentPage: Routes = Routes.ContentView {
+	var currentPage: Routes = Routes.IntroView {
 		didSet {
 			objectWillChange.send(self)
 		}

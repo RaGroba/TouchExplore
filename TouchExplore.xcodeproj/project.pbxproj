@@ -21,7 +21,7 @@
 		2B648DCB24609191002F48CF /* MGLMapViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */; };
 		2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B648DCF2460A43B002F48CF /* MGLUtils.swift */; };
 		2B81857E2469DF04007B7244 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81857D2469DF04007B7244 /* DemoView.swift */; };
-		2B818580246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81857F246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift */; };
+		2B818580246B3A0A007B7244 /* DisabilitySimulatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B81857F246B3A0A007B7244 /* DisabilitySimulatorView.swift */; };
 		2B97F2F2246E90F8000982A7 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97F2F1246E90F8000982A7 /* Print.swift */; };
 		2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B97F2F4246E980F000982A7 /* map-example.jpeg */; };
 		2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656D8245471A6008E315F /* AppDelegate.swift */; };
@@ -87,7 +87,7 @@
 		2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLMapViewCustom.swift; sourceTree = "<group>"; };
 		2B648DCF2460A43B002F48CF /* MGLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGLUtils.swift; sourceTree = "<group>"; };
 		2B81857D2469DF04007B7244 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
-		2B81857F246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabilitySimulatorConfigView.swift; sourceTree = "<group>"; };
+		2B81857F246B3A0A007B7244 /* DisabilitySimulatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabilitySimulatorView.swift; sourceTree = "<group>"; };
 		2B97F2F1246E90F8000982A7 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		2B97F2F4246E980F000982A7 /* map-example.jpeg */ = {isa = PBXFileReference; explicitFileType = image.jpeg; path = "map-example.jpeg"; sourceTree = "<group>"; };
 		2BB656D5245471A6008E315F /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +168,7 @@
 			children = (
 				2BB656DC245471A6008E315F /* ContentView.swift */,
 				2B1389E7246C8B3200E1A6F3 /* IntroView.swift */,
+				2B81857F246B3A0A007B7244 /* DisabilitySimulatorView.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -193,7 +194,6 @@
 				2BB65708245471DF008E315F /* MapView.swift */,
 				2BC12BFD246802AB0016254C /* SearchBar.swift */,
 				2B81857D2469DF04007B7244 /* DemoView.swift */,
-				2B81857F246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift */,
 				2B1389E3246C800E00E1A6F3 /* LocationSelect.swift */,
 			);
 			path = Components;
@@ -562,7 +562,7 @@
 				2B1389EA246DBCB100E1A6F3 /* RootView.swift in Sources */,
 				2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */,
 				2B39D80B2462B81A0085EF70 /* BottomSheetView.swift in Sources */,
-				2B818580246B3A0A007B7244 /* DisabilitySimulatorConfigView.swift in Sources */,
+				2B818580246B3A0A007B7244 /* DisabilitySimulatorView.swift in Sources */,
 				2B648DCB24609191002F48CF /* MGLMapViewCustom.swift in Sources */,
 				2B1389E8246C8B3200E1A6F3 /* IntroView.swift in Sources */,
 				2BB656DD245471A6008E315F /* ContentView.swift in Sources */,
