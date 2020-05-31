@@ -17,6 +17,22 @@ struct BottomSheetView<Content: View>: View {
 	
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
 	
+	private func open() {
+		self.isOpen = true
+	}
+	
+	private func close() {
+		self.isOpen = false
+		
+		UIApplication.shared.endEditing(true)
+	}
+	
+	private func toggle() {
+		self.isOpen = !self.isOpen
+		
+		UIApplication.shared.endEditing(true)
+	}
+	
     private var offset: CGFloat {
         isOpen ? 0 : maxHeight - minHeight
     }
@@ -32,10 +48,9 @@ struct BottomSheetView<Content: View>: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
 				Handle(action: {
-					self.isOpen.toggle()
+					self.toggle()
 				}).padding(.top, 5).opacity(0.8).accessibility(value: self.isOpen ? Text("Kartensteuerung schliessen") : Text("Kartensteuerung öffnen"))
                 self.content
-				
 			}
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
 			.background(Color(.secondarySystemBackground))

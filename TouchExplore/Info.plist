@@ -21,10 +21,12 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiZGVyeiIsImEiOiJjaW80ZDM1c24wMDJwdmtrcGs3cWZuMzBvIn0.kXGGjiq8gWSM4AxFBN99vg</string>
+	<key>MGLMapboxAccessTokenOld</key>
 	<string>pk.eyJ1IjoiZ3Jvc3NyYXAiLCJhIjoiY2s3dDU5ZHpiMG1hYzNvbjF6bDliamFkdSJ9.1tjeFkXmEUGYBQZ_ygUY1Q</string>
 	<key>MGLStreetStyleUrl</key>
-	<string></string>
-	<key>MGL_STYLE_URL</key>
+	<string>mapbox://styles/derz/ckaebjf7u1a201inzgfyw7cpj</string>
+	<key>MGL_STYLE_URL_OLD</key>
 	<string>mapbox://styles/grossrap/ck9lwxfs42i191ipdaaweevph/draft</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Shows your location on the map and helps improve the map.</string>

@@ -6,7 +6,7 @@ struct RootView: View {
 	private func currentView() -> AnyView {
 		switch self.router.currentPage {
 			case .IntroView: return AnyView(IntroView())
-			case .ContentView: return AnyView(ContentView())
+			case .ContentView: return AnyView(ContentView(viewModel: MapViewModel()))
 		}
 		
 	}

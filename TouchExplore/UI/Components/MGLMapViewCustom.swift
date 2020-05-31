@@ -5,7 +5,7 @@ class MGLMapViewCustom:MGLMapView {
 
 	override var accessibilityLabel: String? {
         get {
-            return "Karte"
+            return ""
         }
         set {}
 	}

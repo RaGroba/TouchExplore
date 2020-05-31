@@ -3,19 +3,53 @@ import Mapbox
 import AVFoundation
 import CoreHaptics
 import SwiftUI
+import Combine
 
 
-final class MapStore:ObservableObject {
+final class MapViewModel: ObservableObject {
+	@Published var map: Map {
+		didSet {
+			self.onZoomLevelChange(from: oldValue.zoomLevel, to: map.zoomLevel)
+			
+			self.onFeaturesChange(from: oldValue.interactedFeatures, to: map.interactedFeatures)
+		}
+	}
 	
+	@Published var disabilities: DisabilitySimulator?	
 	
+	@Published var isMapInteractive:Bool = false
+		
+	init() {
+		self.map = Map()
+	}
+	
+	func onFeaturesChange(from: [MGLFeature], to: [MGLFeature]) {
+//		print(to)
+		interactionHandler.onFeatureChange(features: MGLUtils.dedupeFeatures(features: to))
+	}
+	
+	func onZoomLevelChange(from: Double, to: Double) {
+		let didChange = from != to
+		
+		if didChange {
+			speakZoomlevel(zoomLevel: to)
+		}
+	}
+	
+	// MARK: Dirty
 	private let interactionHandler = MapInteractionHandler();
 	
-	@Published var testText: String = ""
+	private let featureService = FeatureMapper()
 	
+	@Published var testText: String = ""
 	@Published var features:[MGLFeature] = [MGLFeature]() {
-		didSet {
-			interactionHandler.onFeatureChange(features: MGLUtils.dedupeFeatures(features: features))
+		willSet {
+			dedupedFeatures = MGLUtils.dedupeFeatures(features: features)
 			
+//			interactedFeaturesPublisher.send(featureService.getInteractionWithHighestPriority(for: dedupedFeatures))
+			
+			interactionHandler.onFeatureChange(features: MGLUtils.dedupeFeatures(features: features))
+	
 			//			let newFeatureIdentifier: AnyObject? = features.first?.identifier as AnyObject?
 			//			let oldFeatureIdentifier: AnyObject? = oldValue.first?.identifier as AnyObject?
 			
@@ -33,14 +67,15 @@ final class MapStore:ObservableObject {
 		}
 	}
 	
-	@Published var zoomLevel:Double = 18 {
-		didSet {
-			let didChange = oldValue != zoomLevel
-			
-			if didChange {
-				speakZoomlevel(zoomLevel: zoomLevel)
-			}
-		}
+	@Published var dedupedFeatures:[MGLFeature] = [MGLFeature]()
+	
+	var featuresPublisher: AnyPublisher<[MGLFeature], Never> {
+		//			.debounce(for: 0.2, scheduler: RunLoop.main)
+		$dedupedFeatures
+			.removeDuplicates(by: { lhs, rhs -> Bool in
+				MGLUtils.areFeaturesArrayEqual(lhs: lhs, rhs: rhs)
+			})
+			.eraseToAnyPublisher()
 	}
 	
 	@Published var centerCoordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 47.3686498, longitude: 8.5391825)
@@ -51,6 +86,8 @@ final class MapStore:ObservableObject {
 		let roundedZoom: Int = Int(zoomLevel.rounded())
 		let text: String = "Zoom \(roundedZoom)x"
 		
+		print(text)
+		
 		UIAccessibility.post(notification: UIAccessibility.Notification.announcement,
 							 argument: text);
 
@@ -58,7 +95,6 @@ final class MapStore:ObservableObject {
 	}
 	
 	private func speakFeature(text: String) {
-		
 		speaker.speak(text: text);
 	}
 }
@@ -434,7 +470,7 @@ class MapInteractionHandler {
 				case _ where buildingTypes.contains(type!):
 					//open door entering building
 					self.currentSoundPlayer = nil
-					if (currentFeature == nil || (currentFeature.attributes.count == 0 || !(buildingTypes.contains(currentFeature.attribute(forKey: "type") as! String)))) {
+					if (currentFeature == nil || (currentFeature.attributes.count == 0 || !(buildingTypes.contains(currentFeature.attribute(forKey: "type") as? String ?? "UNKNOWN")))) {
 						doorOpenSoundPlayer.play()
 					}
 					

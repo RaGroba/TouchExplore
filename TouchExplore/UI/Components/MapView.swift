@@ -4,7 +4,7 @@ import AVFoundation
 
 struct MapView: UIViewRepresentable {	
     private static var styleURL: URL {
-		if let styleUrlFromDict = Bundle.main.object(forInfoDictionaryKey: "MGL_STYLE_URL") as? String {
+		if let styleUrlFromDict = Bundle.main.object(forInfoDictionaryKey: "MGLStreetStyleUrl") as? String {
 			return URL(string: styleUrlFromDict)!
 		}
 		
@@ -126,13 +126,10 @@ struct MapView: UIViewRepresentable {
         }
 
 		func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-			print("mapViewDidFinishLoadingMap");
-	
 			mapView.setCenter((mapView.userLocation?.coordinate)!, animated: false)
 		}
 		
 		func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
-			print("didFinishLoading");
 		}
 		
 		func mapView(_ mapView: MGLMapView, regionDidChangeAnimated animated: Bool) {

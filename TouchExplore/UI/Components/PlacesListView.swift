@@ -15,19 +15,20 @@ struct PlacesListView: View {
 	
     var body: some View {
 		List(self.landmarks, id: \.id) { landmark in
-			Group {
-				VStack(alignment: .leading) {
-					Text(landmark.name)
-					
-					if (landmark.locality != nil && landmark.country != nil) {
-						Text([landmark.locality, landmark.country].compactMap{ $0 }.joined(separator: ", "))
-					}
-				}.accessibilityElement(children: .combine)
-			}
-			.id(landmark.id)
-			.onTapGesture {
+			Button(action: {
 				self.onTapAction(landmark)
-			}
+			}) {
+				HStack {
+					VStack(alignment: .leading) {
+						Text(landmark.name).font(.headline)
+						
+						if (landmark.locality != nil && landmark.country != nil) {
+							Text([landmark.locality, landmark.country].compactMap{ $0 }.joined(separator: ", ")).font(.caption).foregroundColor(Color.gray)
+						}
+					}
+					Spacer()
+				}.accessibilityElement(children: .combine).padding(.top, 8).padding(.bottom, 8)
+			}.id(landmark.id)
 		}.id(UUID()).animation(nil)
 	}
 }
