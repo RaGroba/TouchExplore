@@ -181,7 +181,7 @@ class MapInteractionHandler {
 			playgroundSoundPlayer.numberOfLoops = 99
 			parkSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "park", ofType: "wav")!))
 			parkSoundPlayer.numberOfLoops = 99
-            tramSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "Tram", ofType: "mp3")!))
+            tramSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "tram", ofType: "mp3")!))
             tramSoundPlayer.numberOfLoops = 99
 			waterSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "water", ofType: "mp3")!))
 			waterSoundPlayer.numberOfLoops = 99
