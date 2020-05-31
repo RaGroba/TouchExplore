@@ -391,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				2BC12BE32466B3810016254C /* door_close.mp3 */,
+				2EE53BFC24747B5000FB7B90 /* Tram.mp3 */,
 				2BC12BE72466B3840016254C /* door_open.wav */,
 				2BC12BE12466B3810016254C /* forest.mp3 */,
 				2BC12BE62466B3830016254C /* gravel.mp3 */,
@@ -507,6 +508,7 @@
 				2BC12BEC2466B3840016254C /* lake.wav in Resources */,
 				2B43043F247147E40099BA7D /* FeatureConfig.plist in Resources */,
 				2BC12BEF2466B3840016254C /* water.mp3 in Resources */,
+				2EE53BFD24747B5000FB7B90 /* Tram.mp3 in Resources */,
 				2BC12BF32466B3840016254C /* gravel.mp3 in Resources */,
 				2BC12BE92466B3840016254C /* train.mp3 in Resources */,
 				2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */,

@@ -149,6 +149,7 @@ class MapInteractionHandler {
 	var zoomOutSoundPlayer: AVAudioPlayer!
 	var doorOpenSoundPlayer: AVAudioPlayer!
 	var doorCloseSoundPlayer: AVAudioPlayer!
+    var tramSoundPlayer: AVAudioPlayer!
 	var currentSoundPlayer: AVAudioPlayer!
 	var currentFeature: MGLFeature!
 	var speechSynthesizer = AVSpeechSynthesizer()
@@ -180,6 +181,8 @@ class MapInteractionHandler {
 			playgroundSoundPlayer.numberOfLoops = 99
 			parkSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "park", ofType: "wav")!))
 			parkSoundPlayer.numberOfLoops = 99
+            tramSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "Tram", ofType: "mp3")!))
+            tramSoundPlayer.numberOfLoops = 99
 			waterSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "water", ofType: "mp3")!))
 			waterSoundPlayer.numberOfLoops = 99
 			pageFlipSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "pageflip", ofType: "mp3")!))
@@ -260,7 +263,9 @@ class MapInteractionHandler {
 	
 	let playgroundTypes = ["playground"]
 	
-	let railTypes = ["tram", "train", "rail", "narrow_gauge"]
+	let railTypes = ["train", "rail", "narrow_gauge"]
+    
+    let tramTypes = ["tram"]
 	
 	let grassTypes = ["grass", "park", "meadow", "garden", "recreation_ground", "wood"]
 	
@@ -327,14 +332,21 @@ class MapInteractionHandler {
 			let type = item.attribute(forKey: "type") as! String?
 			return type != nil && forestTypes.contains(type!)
 		})
+        
+        let trams = features.filter({(item: MGLFeature) -> Bool in
+            let type = item.attribute(forKey: "type") as! String?
+            return type != nil && tramTypes.contains(type!)
+        })
 		
 		
 		//handle hight priority features
 		if (rails.count > 0) {
-			featureHandler(feature: rails.first!)
-		} else if (streets.count > 1) {
-			handleCrossing(streets: streets)
-		} else if (streets.count == 1) {
+            featureHandler(feature: rails.first!)
+        } else if (trams.count > 0) {
+            featureHandler(feature: trams.first!)
+        } else if (streets.count > 1) {
+            handleCrossing(streets: streets)
+        } else if (streets.count == 1) {
 			featureHandler(feature: streets.first!)
 		} else if (playgrounds.count >= 1) {
 			featureHandler(feature: playgrounds.first!)
@@ -467,6 +479,9 @@ class MapInteractionHandler {
 				case _ where railTypes.contains(type!):
 					self.currentSoundPlayer = trainSoundPlayer
 					self.currentVibrationPlayer = trainVibrationPlayer
+                case _ where tramTypes.contains(type!):
+                    self.currentSoundPlayer = tramSoundPlayer
+                    self.currentVibrationPlayer = trainVibrationPlayer
 				case _ where buildingTypes.contains(type!):
 					//open door entering building
 					self.currentSoundPlayer = nil

@@ -109,7 +109,9 @@ struct MapView: UIViewRepresentable {
 		} else if (to == .down) {
 			mapView.setCenter(CLLocationCoordinate2D(latitude: currentLat + deltaWidth, longitude: currentLong), animated: true)
 		}
-
+        
+        
+        
 		UIAccessibility.post(notification: UIAccessibility.Notification.pageScrolled,
 							 argument: "");
 	}
