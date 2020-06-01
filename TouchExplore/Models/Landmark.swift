@@ -3,7 +3,7 @@ import MapKit
 import CoreLocation
 
 struct Landmark: Identifiable {
-	let placemark: CLPlacemark
+	let placemark: MKPlacemark
 
 	var id: UUID {
 		return UUID()

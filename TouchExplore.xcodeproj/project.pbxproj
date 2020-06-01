@@ -38,6 +38,8 @@
 		2B97F2F72470179B000982A7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97F2F62470179B000982A7 /* TutorialView.swift */; };
 		2BA1232B2483B32300F621D1 /* AccessibilityModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1232A2483B32300F621D1 /* AccessibilityModalView.swift */; };
 		2BA1232D2483EDAC00F621D1 /* tram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1232C2483EDAC00F621D1 /* tram.mp3 */; };
+		2BA1232F2483F11400F621D1 /* PlacesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1232E2483F11400F621D1 /* PlacesSearchViewModel.swift */; };
+		2BA123312483F42400F621D1 /* SearchPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA123302483F42400F621D1 /* SearchPlacesService.swift */; };
 		2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656D8245471A6008E315F /* AppDelegate.swift */; };
 		2BB656DB245471A6008E315F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DA245471A6008E315F /* SceneDelegate.swift */; };
 		2BB656DD245471A6008E315F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656DC245471A6008E315F /* ContentView.swift */; };
@@ -109,6 +111,8 @@
 		2B97F2F62470179B000982A7 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		2BA1232A2483B32300F621D1 /* AccessibilityModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityModalView.swift; sourceTree = "<group>"; };
 		2BA1232C2483EDAC00F621D1 /* tram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tram.mp3; path = ../../../../../Desktop/tempgit/TouchExplore/Resources/Audio/tram.mp3; sourceTree = "<group>"; };
+		2BA1232E2483F11400F621D1 /* PlacesSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchViewModel.swift; sourceTree = "<group>"; };
+		2BA123302483F42400F621D1 /* SearchPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesService.swift; sourceTree = "<group>"; };
 		2BB656D5245471A6008E315F /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB656D8245471A6008E315F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB656DA245471A6008E315F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				2B1389E7246C8B3200E1A6F3 /* IntroView.swift */,
 				2B81857F246B3A0A007B7244 /* DisabilitySimulatorView.swift */,
 				2B97F2F62470179B000982A7 /* TutorialView.swift */,
+				2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -209,7 +214,6 @@
 				2B97F2F0246E90E1000982A7 /* Helpers */,
 				2B39D8062462B52F0085EF70 /* Elements */,
 				2B39D80E246344230085EF70 /* PlacesListView.swift */,
-				2B39D80C2463315F0085EF70 /* PlacesSearchView.swift */,
 				2B39D80A2462B81A0085EF70 /* BottomSheetView.swift */,
 				2B648DCA24609191002F48CF /* MGLMapViewCustom.swift */,
 				2BB65708245471DF008E315F /* MapView.swift */,
@@ -257,6 +261,7 @@
 			children = (
 				2B1389EB246DC09000E1A6F3 /* ViewRouter.swift */,
 				2B2471D5245B539F0092116B /* MapViewModel.swift */,
+				2BA1232E2483F11400F621D1 /* PlacesSearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 		2BB792702478107E00BD3604 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2BA123302483F42400F621D1 /* SearchPlacesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				2BB7927624793A8300BD3604 /* MapAccessiblityWrapper.swift in Sources */,
 				2B75EAF0247D94A8007BA0ED /* MGLFeature.swift in Sources */,
 				2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */,
+				2BA1232F2483F11400F621D1 /* PlacesSearchViewModel.swift in Sources */,
 				2B0F3F032482920D0060DF2D /* TestSetup.swift in Sources */,
 				2B39D80D2463315F0085EF70 /* PlacesSearchView.swift in Sources */,
 				2B0F3EFD248049010060DF2D /* Locations.swift in Sources */,
@@ -613,6 +620,7 @@
 				2B648DD02460A43C002F48CF /* MGLUtils.swift in Sources */,
 				2B75EAEC247C5719007BA0ED /* FeatureInteractionReducer.swift in Sources */,
 				2B97F2F72470179B000982A7 /* TutorialView.swift in Sources */,
+				2BA123312483F42400F621D1 /* SearchPlacesService.swift in Sources */,
 				2B2471D6245B53A00092116B /* MapViewModel.swift in Sources */,
 				2BB792742478111D00BD3604 /* FeatureConfig.swift in Sources */,
 				2B39D8082462B5560085EF70 /* Handle.swift in Sources */,
