@@ -15,7 +15,7 @@ struct AccessibilityModalView<Content: View>: View {
 		}
 		.accessibility(label: Text("Karte"))
 		.if(self.isActive) {
-			$0.accessibility(addTraits: .allowsDirectInteraction)
+			$0.accessibility(addTraits: .allowsDirectInteraction).accessibility(addTraits: .isModal)
 		}
 		.if(!self.isActive) {
 			$0.accessibility(hint: Text("Zum interagieren doppeltippen"))

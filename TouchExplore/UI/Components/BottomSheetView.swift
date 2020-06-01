@@ -61,7 +61,9 @@ struct BottomSheetView<Content: View>: View {
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.height
-                }.onEnded { value in
+              
+					UIApplication.shared.endEditing(true)
+				}.onEnded { value in
                     let snapDistance = self.maxHeight * Constants.snapRatio
                     guard abs(value.translation.height) > snapDistance else {
                         return

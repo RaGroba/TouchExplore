@@ -10,21 +10,32 @@ struct PlacesSearchView<Content: View>: View {
 		print("on Landmark Click", landmark)
 	}
 	
+	private var onEditingChanged: (Bool) -> Void = { _ in }
+	
 	private var emptyTermView: () -> Content
 	
-	init(viewModel: PlacesSearchViewModel, onPlacesTapAction: @escaping (Landmark) -> Void = { _ in }, @ViewBuilder emptyTermView: @escaping () -> Content) {
+	init(
+		viewModel: PlacesSearchViewModel,
+		onPlacesTapAction: @escaping (Landmark) -> Void = { _ in },
+		@ViewBuilder emptyTermView: @escaping () -> Content,
+		onEditingChanged: ((Bool) -> Void)? = { _ in }
+	) {
 		self.viewModel = viewModel
 		self.onPlacesTapAction = onPlacesTapAction
 		
 		self.emptyTermView = emptyTermView
+	
+		if let onEditingChanged = onEditingChanged {
+			self.onEditingChanged = onEditingChanged
+		}
 	}
 	
 	var body: some View {
 		VStack {
-			SearchBar("Nach einem Ort oder einer Adresse suchen", text: self.$viewModel.term).style(UISearchBar.Style.minimal)
-			
+			SearchBar("Nach einem Ort oder einer Adresse suchen", text: self.$viewModel.term, onEditingChanged: self.onEditingChanged).style(UISearchBar.Style.minimal)
+
 			if self.viewModel.term.count > 0 {
-				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).resignKeyboardOnDragGesture().accessibility(label: Text("Suchresultate"))
+				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).accessibility(label: Text("Suchresultate"))
 			} else {
 				emptyTermView()
 			}

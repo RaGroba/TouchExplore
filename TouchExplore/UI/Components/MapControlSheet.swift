@@ -18,6 +18,10 @@ struct MapControlSheet: View {
 						self.viewModel.map = setup.mapConfig
 						self.viewModel.disabilities = setup.disabilities
 					})
+				}, onEditingChanged: { editing in
+					if editing {
+						self.isPresented = true
+					}
 				})
 			}
 		}.accessibilityElement(children: .contain).edgesIgnoringSafeArea(.all)
