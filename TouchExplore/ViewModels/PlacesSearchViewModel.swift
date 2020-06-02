@@ -35,7 +35,7 @@ class PlacesSearchViewModel: ObservableObject, Identifiable {
 				return self.searchPlacesService.query(term: searchString, region: self.region)
 			}
 			.replaceError(with: [])
-			.receive(on: DispatchQueue.main)
+			.receive(on: RunLoop.main)
 			.assign(to: \.landmarks, on: self)
 	}
 	
