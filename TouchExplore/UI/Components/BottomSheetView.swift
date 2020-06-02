@@ -46,31 +46,41 @@ struct BottomSheetView<Content: View>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 0) {
-				Handle(action: {
-					self.toggle()
-				}).padding(.top, 5).opacity(0.8).accessibility(value: self.isOpen ? Text("Kartensteuerung schliessen") : Text("Kartensteuerung öffnen"))
-                self.content
+			ZStack {
+				if self.isOpen {
+					Rectangle()
+						.fill(Color.black)
+						.animation(.easeInOut(duration: 0.3))
+						.opacity(0.3)
+						.transition(.opacity)
+						.frame(width: geometry.size.width, height: geometry.size.height)
+				}
+				VStack(spacing: 0) {
+					Handle(action: {
+						self.toggle()
+					}).padding(.top, 5).opacity(0.8).accessibility(value: self.isOpen ? Text("Kartensteuerung schliessen") : Text("Kartensteuerung öffnen"))
+					self.content
+				}
+				.frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
+				.background(Color(.secondarySystemBackground))
+				.cornerRadius(Constants.radius, antialiased: true)
+				.frame(height: geometry.size.height, alignment: .bottom)
+				.offset(y: max(self.offset + self.translation, 0))
+				.animation(.interactiveSpring())
+				.gesture(
+					DragGesture().updating(self.$translation) { value, state, _ in
+						state = value.translation.height
+				  
+						UIApplication.shared.endEditing(true)
+					}.onEnded { value in
+						let snapDistance = self.maxHeight * Constants.snapRatio
+						guard abs(value.translation.height) > snapDistance else {
+							return
+						}
+						self.isOpen = value.translation.height < 0
+					}
+				)
 			}
-            .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-			.background(Color(.secondarySystemBackground))
-			.cornerRadius(Constants.radius, antialiased: true)
-            .frame(height: geometry.size.height, alignment: .bottom)
-            .offset(y: max(self.offset + self.translation, 0))
-            .animation(.interactiveSpring())
-            .gesture(
-                DragGesture().updating(self.$translation) { value, state, _ in
-                    state = value.translation.height
-              
-					UIApplication.shared.endEditing(true)
-				}.onEnded { value in
-                    let snapDistance = self.maxHeight * Constants.snapRatio
-                    guard abs(value.translation.height) > snapDistance else {
-                        return
-                    }
-                    self.isOpen = value.translation.height < 0
-                }
-            )
 		}.accessibility(addTraits: .isModal)
     }
 }
