@@ -7,7 +7,7 @@ struct IntroView: View {
 	}
 
 	var version : String? {
-		Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+		Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	}
 	
     @EnvironmentObject var router: ViewRouter
