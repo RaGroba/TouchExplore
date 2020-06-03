@@ -3,9 +3,10 @@ import SwiftUI
 struct AccessibilityModalView<Content: View>: View {
 	private var content: Content
 	
-	@State var isActive: Bool = false
+	@Binding var isActive: Bool
 	
-	init(@ViewBuilder content: () -> Content) {
+	init(isActive: Binding<Bool> ,@ViewBuilder content: () -> Content) {
+		self._isActive = isActive
 		self.content = content()
 	}
 	
@@ -15,10 +16,12 @@ struct AccessibilityModalView<Content: View>: View {
 		}
 		.accessibility(label: Text("Karte"))
 		.if(self.isActive) {
-			$0.accessibility(addTraits: .allowsDirectInteraction).accessibility(addTraits: .isModal)
+			$0.accessibility(hint: Text("Zum beenden mit drei fingern nach oben streichen."))
+				.accessibility(addTraits: .allowsDirectInteraction)
+				.accessibility(addTraits: .isModal)
 		}
 		.if(!self.isActive) {
-			$0.accessibility(hint: Text("Zum interagieren doppeltippen"))
+			$0.accessibility(hint: Text("Zum interagieren doppeltippen. Um danach zurück in den VoiceOver Modus zu wechseln mit drei fingern nach oben streichen."))
 				.accessibilityAction {
 					self.isActive = true
 				}

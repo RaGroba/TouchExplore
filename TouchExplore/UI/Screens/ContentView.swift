@@ -15,31 +15,19 @@ struct ContentView: View {
 	@State var isSettingsOpen = false
 	@State var isDisabilitySimulatorPresented: Bool = false
 	
+	@State var isMapActive = false
+	
 	var body: some View {
 		GeometryReader { geometry in
 			ZStack {
-//				Group {
-//					Group {
-//						MapView(locationManager: self.locationManager, zoomLevel: self.$viewModel.map.zoomLevel, features: self.$viewModel.map.interactedFeatures, centerCoordinate: self.$viewModel.map.centerCoordinate).edgesIgnoringSafeArea(.all)
-//					}
-//					.accessibility(hidden: !self.viewModel.isMapInteractive)
-//					.accessibilityElement(children: .combine)
-//					.disabilitySimulator(values: self.viewModel.disabilities)
-//					.if(self.viewModel.isMapInteractive) {
-//						$0.accessibility(addTraits: .allowsDirectInteraction)
-//					}.if(!self.viewModel.isMapInteractive) {
-//						$0.accessibility(label: Text("Karte"))
-//							.accessibility(value: Text("Doppeltippen um zu interagieren."))
-//					}
-//				}.accessibilityAction {
-//					self.viewModel.isMapInteractive = true
-//				}
-				
-				AccessibilityModalView {
-					MapView(locationManager: self.locationManager, zoomLevel: self.$viewModel.map.zoomLevel, features: self.$viewModel.map.interactedFeatures, centerCoordinate: self.$viewModel.map.centerCoordinate)
+				AccessibilityModalView(isActive: self.$isMapActive) {
+					MapView(locationManager: self.locationManager, zoomLevel: self.$viewModel.map.zoomLevel, features: self.$viewModel.map.interactedFeatures, centerCoordinate: self.$viewModel.map.centerCoordinate, onRequestBlur: {
+							self.isMapActive = false
+						})
 						.edgesIgnoringSafeArea(.all)
 						.accessibilityElement(children: .combine)
 						.disabilitySimulator(values: self.viewModel.disabilities)
+						
 				}
 				
 				VStack {

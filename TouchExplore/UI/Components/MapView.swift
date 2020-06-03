@@ -17,6 +17,8 @@ struct MapView: UIViewRepresentable {
 	@Binding var features:[MGLFeature]
 	@Binding var centerCoordinate:CLLocationCoordinate2D
 	
+	@State var onRequestBlur: () -> Void
+	
 	private let mapView: MGLMapView = MGLMapViewCustom(frame: .zero, styleURL: MapView.styleURL)
     
     // MARK: - Configuring UIViewRepresentable protocol
@@ -82,6 +84,12 @@ struct MapView: UIViewRepresentable {
 			twoFingerSwipeGesture.direction = direction
 			target.addGestureRecognizer(twoFingerSwipeGesture)
 		}
+		
+		// Three-Finger swipe: reqeuest map blur (removes accessibility traits)
+		let threeFingerSwipeUpGesture = UISwipeGestureRecognizer(target: mapView.delegate, action: #selector(Coordinator.onThreeFingerSwipeUp))
+		threeFingerSwipeUpGesture.numberOfTouchesRequired = 3
+		threeFingerSwipeUpGesture.direction = UISwipeGestureRecognizer.Direction.up
+		target.addGestureRecognizer(threeFingerSwipeUpGesture)
 	}
 	
     // MARK: - Configuring MGLMapView
@@ -183,6 +191,15 @@ struct MapView: UIViewRepresentable {
 			
 			if (gestureRecognizer.state == .ended) {
 				parent.moveMapBySector(to: gestureRecognizer.direction)
+			}
+		}
+		
+		@objc func onThreeFingerSwipeUp(gestureRecognizer: UISwipeGestureRecognizer) {
+			guard gestureRecognizer.view != nil else { return }
+			
+			if (gestureRecognizer.state == .ended) {
+				print("on three finger swipe up")
+				parent.onRequestBlur()
 			}
 		}
 	}

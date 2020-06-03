@@ -18,9 +18,28 @@ final class MapViewModel: ObservableObject {
 	@Published var disabilities: DisabilitySimulator?	
 	
 	@Published var isMapInteractive:Bool = false
-		
+	
+	private lazy var zoomLevelPublisher: AnyPublisher<Double, Never> = {
+		self.$map.receive(on: RunLoop.main)
+			.map {
+				$0.zoomLevel
+			}
+			.removeDuplicates()
+			.eraseToAnyPublisher()
+	}()
+	
+	private var zoomLevelSubscriber: AnyCancellable?
+	
 	init() {
 		self.map = Map()
+		
+		zoomLevelSubscriber = self.$map.map {
+									$0.zoomLevel
+								}
+								.removeDuplicates()
+								.sink { (value) in
+									print(value)
+								}
 	}
 	
 	func onFeaturesChange(from: [MGLFeature], to: [MGLFeature]) {
