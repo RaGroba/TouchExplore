@@ -296,7 +296,8 @@ class MapInteractionHandler {
 	var walkVibrationPlayer: CHHapticAdvancedPatternPlayer!
 	var trainVibrationPlayer: CHHapticAdvancedPatternPlayer!
 	var signalVibrationPlayer: CHHapticAdvancedPatternPlayer!
-	@State var currentVibrationPlayer: CHHapticAdvancedPatternPlayer!
+	
+	var currentVibrationPlayer: CHHapticAdvancedPatternPlayer!
 	
 	func onFeatureChange(features: [MGLFeature]) {
 		for feature in features {
