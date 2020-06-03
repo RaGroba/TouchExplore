@@ -4,6 +4,8 @@ import AVKit
 import UIKit
 
 struct ContentView: View {
+	@EnvironmentObject var router: ViewRouter
+	
 	@ObservedObject var viewModel: MapViewModel
 	
 	@ObservedObject var disabilitySimulatorViewModel: DisabilitySimulatorViewModel = DisabilitySimulatorViewModel()
@@ -65,6 +67,13 @@ struct ContentView: View {
 								Image(systemName: "location.fill")
 									.modifier(MapButton())
 									.accessibility(label: Text("Aktueller Standort einblenden"))
+							}
+							Button(action: {
+								self.router.goto(Routes.IntroView)
+							}) {
+								Image(systemName: "info.circle")
+									.modifier(MapButton())
+									.accessibility(label: Text("Intro erneut anzeigen"))
 							}
 						}.padding(.trailing, 8)
 					}
