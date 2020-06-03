@@ -36,11 +36,18 @@ struct IntroView: View {
 				VStack (alignment: .leading, spacing: 8) {
 					Text("Anleitung").font(.headline).multilineTextAlignment(.center).padding(.bottom)
 					Text("Willkommen! \(appName) bietet Ihnen die Möglichkeit, eine Karte audiotaktil zu erleben. Aktivieren Sie dazu nach dem Klick auf Start die Karte mit einem doppelklick und bewegen Sie anschliessend einen Finger auf der Karte. Um zurück inden VoiceOver Modus zu wechseln, mit drei Fingern nach oben streichen. Zur Navigation auf der Karte stehen ihnen folgende Gesten zur Verfügung:")
+						.multilineTextAlignment(.leading)
+						.fixedSize(horizontal: false, vertical: true)
+						.lineLimit(nil)
 					VStack(alignment: .leading, spacing: 8) {
 						ForEach(gestures, id: \.self) { text in
-							HStack(spacing: 20) {
-								Text("\u{2022}").accessibility(hidden: true)
+							HStack(alignment: .top, spacing: 20) {
+								Text("\u{2022}")
+									.accessibility(hidden: true)
 								Text(text)
+									.multilineTextAlignment(.leading)
+									.lineLimit(nil)
+									.fixedSize(horizontal: false, vertical: true)
 							}.accessibilityElement(children: .combine)
 						}
 					}
@@ -66,6 +73,6 @@ struct IntroView: View {
 
 struct IntroView_Previews: PreviewProvider {
     static var previews: some View {
-        IntroView()
+		IntroView().environmentObject(ViewRouter())
     }
 }
