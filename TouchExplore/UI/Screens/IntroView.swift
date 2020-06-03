@@ -50,7 +50,7 @@ struct IntroView: View {
 									.fixedSize(horizontal: false, vertical: true)
 							}.accessibilityElement(children: .combine)
 						}
-					}
+					}.padding(.top, 16)
 					Spacer()
 				}
 			}.padding()
@@ -60,7 +60,7 @@ struct IntroView: View {
 					self.router.currentPage = Routes.ContentView
 				}) {
 					Text("Starten")
-					.frame(minWidth: 100, maxWidth: .infinity, alignment: .center)
+						.frame(minWidth: 100, maxWidth: .infinity, alignment: .center)
 				}
 				.padding(.all)
 				.foregroundColor(.white)
