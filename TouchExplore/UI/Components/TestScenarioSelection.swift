@@ -6,22 +6,40 @@ struct TestScenarioSelection: View {
 	private let testSetups: [TestSetup] = [
 		TestSetup(
 			title: "Szenario 1",
-			description: "Parkanlage mit Weg",
-			mapConfig: Map(zoomLevel: 12, centerCoordinate: Locations.Zurich),
-			disabilities: DisabilitySimulator(blur: 20)
+			description: "Erkundung normal",
+			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Chinagarten),
+			disabilities: DisabilitySimulator()
 		),
 		TestSetup(
 			title: "Szenario 2",
-			description: "Innenstadt",
-			mapConfig: Map(zoomLevel: 10, centerCoordinate: Locations.Zurich),
-			disabilities: DisabilitySimulator(blur: 30, blindness: 0.95)
+			description: "Erkundung normal",
+			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Dolder),
+			disabilities: DisabilitySimulator()
 		),
 		TestSetup(
 			title: "Szenario 3",
-			description: "Natur",
-			mapConfig: Map(zoomLevel: 6, centerCoordinate: Locations.Zurich),
-			disabilities: DisabilitySimulator(blur: 30, grayscale: 1)
-		)
+			description: "Erkundung normal",
+			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Buerkliplatz),
+			disabilities: DisabilitySimulator()
+		),
+        TestSetup(
+            title: "Simulator 1",
+            description: "Erkundung Blur",
+            mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Zurich),
+            disabilities: DisabilitySimulator(blur: 20)
+        ),
+        TestSetup(
+            title: "Simulator 2",
+            description: "Erkundung Blur Blind 95%",
+            mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Zurich),
+            disabilities: DisabilitySimulator(blur: 30, blindness: 0.95)
+        ),
+        TestSetup(
+            title: "Simulator 3",
+            description: "Erkundung Blur Grayscale 1",
+            mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Zurich),
+            disabilities: DisabilitySimulator(blur: 30, grayscale: 1)
+        )
 	]
 	
 	var body: some View {

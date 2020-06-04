@@ -37,7 +37,6 @@
 		2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2B97F2F4246E980F000982A7 /* map-example.jpeg */; };
 		2B97F2F72470179B000982A7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97F2F62470179B000982A7 /* TutorialView.swift */; };
 		2BA1232B2483B32300F621D1 /* AccessibilityModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1232A2483B32300F621D1 /* AccessibilityModalView.swift */; };
-		2BA1232D2483EDAC00F621D1 /* tram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BA1232C2483EDAC00F621D1 /* tram.mp3 */; };
 		2BA1232F2483F11400F621D1 /* PlacesSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA1232E2483F11400F621D1 /* PlacesSearchViewModel.swift */; };
 		2BA123312483F42400F621D1 /* SearchPlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA123302483F42400F621D1 /* SearchPlacesService.swift */; };
 		2BB656D9245471A6008E315F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB656D8245471A6008E315F /* AppDelegate.swift */; };
@@ -75,6 +74,7 @@
 		2BC12BFB2466B3DA0016254C /* playground.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF72466B3DA0016254C /* playground.wav */; };
 		2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF82466B3DA0016254C /* stadium.mp3 */; };
 		2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BFD246802AB0016254C /* SearchBar.swift */; };
+		2E16581B2489090A00F049E9 /* tram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E16581A2489090A00F049E9 /* tram.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +110,6 @@
 		2B97F2F4246E980F000982A7 /* map-example.jpeg */ = {isa = PBXFileReference; explicitFileType = image.jpeg; path = "map-example.jpeg"; sourceTree = "<group>"; };
 		2B97F2F62470179B000982A7 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		2BA1232A2483B32300F621D1 /* AccessibilityModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityModalView.swift; sourceTree = "<group>"; };
-		2BA1232C2483EDAC00F621D1 /* tram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tram.mp3; path = ../../../../../Desktop/tempgit/TouchExplore/Resources/Audio/tram.mp3; sourceTree = "<group>"; };
 		2BA1232E2483F11400F621D1 /* PlacesSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchViewModel.swift; sourceTree = "<group>"; };
 		2BA123302483F42400F621D1 /* SearchPlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesService.swift; sourceTree = "<group>"; };
 		2BB656D5245471A6008E315F /* TouchExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +148,7 @@
 		2BC12BF72466B3DA0016254C /* playground.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playground.wav; sourceTree = "<group>"; };
 		2BC12BF82466B3DA0016254C /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
 		2BC12BFD246802AB0016254C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		2E16581A2489090A00F049E9 /* tram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tram.mp3; sourceTree = "<group>"; };
 		9A7C3302E05E0614CA775494 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -404,10 +404,10 @@
 				2BC12BE62466B3830016254C /* gravel.mp3 */,
 				2BC12BDF2466B3810016254C /* lake.wav */,
 				2BC12BDE2466B37F0016254C /* motorway.mp3 */,
+				2E16581A2489090A00F049E9 /* tram.mp3 */,
 				2BC12BE42466B3820016254C /* pageflip.mp3 */,
 				2BC12BE52466B3830016254C /* park.wav */,
 				2BC12BDD2466B37E0016254C /* river.mp3 */,
-				2BA1232C2483EDAC00F621D1 /* tram.mp3 */,
 				2BC12BF52466B3D80016254C /* golf.mp3 */,
 				2BC12BF72466B3DA0016254C /* playground.wav */,
 				2BC12BF82466B3DA0016254C /* stadium.mp3 */,
@@ -507,11 +507,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */,
-				2BA1232D2483EDAC00F621D1 /* tram.mp3 in Resources */,
 				2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */,
 				2BC12BFB2466B3DA0016254C /* playground.wav in Resources */,
 				2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */,
 				2BC12BF12466B3840016254C /* pageflip.mp3 in Resources */,
+				2E16581B2489090A00F049E9 /* tram.mp3 in Resources */,
 				2BC12BF02466B3840016254C /* door_close.mp3 in Resources */,
 				2BC12BEC2466B3840016254C /* lake.wav in Resources */,
 				2B43043F247147E40099BA7D /* FeatureConfig.plist in Resources */,
