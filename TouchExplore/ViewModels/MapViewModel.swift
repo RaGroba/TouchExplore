@@ -416,7 +416,7 @@ class MapInteractionHandler {
 		})))
 		
 		if streetNames.count > 0 {
-			let sentence = streetNames.reduce("Kreuzung") {
+			let sentence = streetNames.reduce("Crossing") {
 				"\($0) \($1)"
 			}
 			
@@ -468,7 +468,7 @@ class MapInteractionHandler {
 					self.currentVibrationPlayer = nil
 				case _ where footwayTypes.contains(type!):
 					if type == "steps" {
-						synthesize(string: "Treppe")
+						synthesize(string: "Stairs")
 					}
 					self.currentSoundPlayer = footwaySoundPlayer
 					self.currentVibrationPlayer = walkVibrationPlayer
@@ -563,7 +563,7 @@ class MapInteractionHandler {
 		}
 		let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
 		speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
-		speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-CH")
+		speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
 		speechSynthesizer.speak(speechUtterance)
 	}
 	
@@ -573,7 +573,7 @@ class MapInteractionHandler {
 		} else {
 			let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
 			speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
-			speechUtterance.voice = AVSpeechSynthesisVoice(language: "de-CH")
+			speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
 			speechCrossingSynthesizer.speak(speechUtterance)
 		}
 	}
