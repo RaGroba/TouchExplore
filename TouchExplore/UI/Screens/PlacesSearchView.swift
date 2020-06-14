@@ -32,10 +32,10 @@ struct PlacesSearchView<Content: View>: View {
 	
 	var body: some View {
 		VStack {
-			SearchBar("Nach einem Ort oder einer Adresse suchen", text: self.$viewModel.term, onEditingChanged: self.onEditingChanged).style(UISearchBar.Style.minimal)
+			SearchBar("Search for citys or places", text: self.$viewModel.term, onEditingChanged: self.onEditingChanged).style(UISearchBar.Style.minimal)
 
 			if self.viewModel.term.count > 0 {
-				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).accessibility(label: Text("Suchresultate"))
+				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).accessibility(label: Text("search results"))
 			} else {
 				emptyTermView()
 			}
@@ -46,7 +46,7 @@ struct PlacesSearchView<Content: View>: View {
 struct PlacesSearchView_Previews: PreviewProvider {
 	static var previews: some View {
 		PlacesSearchView(viewModel: PlacesSearchViewModel(), emptyTermView: {
-			Text("Ihr Suchbegriff ist leer")
+			Text("No search text")
 		}).environmentObject(MapViewModel())
 	}
 }
