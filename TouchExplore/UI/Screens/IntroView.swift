@@ -13,10 +13,10 @@ struct IntroView: View {
     @EnvironmentObject var router: ViewRouter
 	
 	let gestures: [String] = [
-		"Explorieren: Einen Finger auf dem Screen bewegen.",
-		"Zwei Finger Swipe: Kartenausschnitt um volle Bildschirmbreite wechseln",
-		"Doubletap: Kartenmittelpunkt setzen",
-		"Pinch und Swipe: Zoomlevel ändern"
+		"Explore: move one finger on screen",
+		"Two-finger swipe: move map one screen width",
+		"Double tap: center map on tap location",
+		"Pinch and swipe: change zoom level"
 	]
 	
     var body: some View {
@@ -34,8 +34,8 @@ struct IntroView: View {
 				}
 				
 				VStack (alignment: .leading, spacing: 8) {
-					Text("Anleitung").font(.headline).multilineTextAlignment(.center).padding(.bottom)
-					Text("Willkommen! \(appName) bietet Ihnen die Möglichkeit, eine Karte audiotaktil zu erleben. Aktivieren Sie dazu nach dem Klick auf Start die Karte mit einem doppelklick und bewegen Sie anschliessend einen Finger auf der Karte. Um zurück inden VoiceOver Modus zu wechseln, mit drei Fingern nach oben streichen. Zur Navigation auf der Karte stehen ihnen folgende Gesten zur Verfügung:")
+					Text("Instruction").font(.headline).multilineTextAlignment(.center).padding(.bottom)
+					Text("Welcome! \(appName) offers you the opportunity to experience a map audiotactile. To do so, after clicking Start, activate the map with a double click and then move a finger on the map. To switch back to VoiceOver mode, swipe upwards with three fingers. You can use the following gestures to navigate the map:")
 						.multilineTextAlignment(.leading)
 						.fixedSize(horizontal: false, vertical: true)
 						.lineLimit(nil)
@@ -59,7 +59,7 @@ struct IntroView: View {
 				Button(action: {
 					self.router.currentPage = Routes.ContentView
 				}) {
-					Text("Starten")
+					Text("Start")
 						.frame(minWidth: 100, maxWidth: .infinity, alignment: .center)
 				}
 				.padding(.all)

@@ -19,16 +19,16 @@ struct DisabilitySimulatorView: View {
 		
 	var body: some View {
 		return Form {
-			Section(header: Text("Sichtbarkeit (Transparenz)")) {
+			Section(header: Text("Visibility (Transparency)")) {
 				HStack {
-					Toggle("Karte visuell ausblenden", isOn: self.$vm.isHidden)
+					Toggle("Visually hide map", isOn: self.$vm.isHidden)
 				}
 				HStack {
 					Slider(value: self.$vm.disabilities.blindness, in: 0...1, step: 0.01)
 					Text("\(Int(self.vm.disabilities.blindness * 100))%").accessibility(hidden: true)
 				}.disabled(self.vm.isHidden)
 			}
-			Section(header: Text("Myopie (Blur)")) {
+			Section(header: Text("Blur")) {
 				HStack {
 					Slider(value: self.$vm.disabilities.blur, in: 0...30, step: 1).accessibility(value: Text("\(Int(self.vm.disabilities.blur))"))
 					Text("\(Int(self.vm.disabilities.blur))px").accessibility(hidden: true)
@@ -40,7 +40,7 @@ struct DisabilitySimulatorView: View {
 					Text("\(Int(self.vm.disabilities.grayscale * 100))%").accessibility(hidden: true)
 				}
 			}
-			Section(header: Text("Kontrast")) {
+			Section(header: Text("Contrast")) {
 				HStack {
 					Slider(value: self.$vm.disabilities.contrast, in: 1...2, step: 0.01)
 					Text("\(String(format: "%.2f", self.vm.disabilities.contrast))").accessibility(hidden: true)
@@ -52,12 +52,12 @@ struct DisabilitySimulatorView: View {
 					Button(action: {
 						self.vm.reset()
 					}) {
-						Text("Alle Werte zurücksetzen").foregroundColor(Color.red)
+						Text("Reset all settings").foregroundColor(Color.red)
 					}
 				}
 			}
 			
-			Section(header: Text("Vorschau")) {
+			Section(header: Text("Preview")) {
 				HStack {
 					Spacer()
 					Group {

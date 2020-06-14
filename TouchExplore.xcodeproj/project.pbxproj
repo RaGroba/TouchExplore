@@ -57,7 +57,6 @@
 		2BBC7A02246858B7007F0988 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC7A01246858B7007F0988 /* AppState.swift */; };
 		2BC12BD824657C730016254C /* ResignKeyboardOnDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */; };
 		2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDB2466B37E0016254C /* zoom_in.mp3 */; };
-		2BC12BE92466B3840016254C /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDC2466B37E0016254C /* train.mp3 */; };
 		2BC12BEA2466B3840016254C /* river.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDD2466B37E0016254C /* river.mp3 */; };
 		2BC12BEB2466B3840016254C /* motorway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDE2466B37F0016254C /* motorway.mp3 */; };
 		2BC12BEC2466B3840016254C /* lake.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BDF2466B3810016254C /* lake.wav */; };
@@ -75,6 +74,7 @@
 		2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BC12BF82466B3DA0016254C /* stadium.mp3 */; };
 		2BC12BFE246802AB0016254C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC12BFD246802AB0016254C /* SearchBar.swift */; };
 		2E16581B2489090A00F049E9 /* tram.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E16581A2489090A00F049E9 /* tram.mp3 */; };
+		2E16581D24926DC100F049E9 /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E16581C24926DC000F049E9 /* train.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,7 +131,6 @@
 		2BBC7A01246858B7007F0988 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2BC12BD724657C730016254C /* ResignKeyboardOnDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGesture.swift; sourceTree = "<group>"; };
 		2BC12BDB2466B37E0016254C /* zoom_in.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zoom_in.mp3; sourceTree = "<group>"; };
-		2BC12BDC2466B37E0016254C /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
 		2BC12BDD2466B37E0016254C /* river.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = river.mp3; sourceTree = "<group>"; };
 		2BC12BDE2466B37F0016254C /* motorway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = motorway.mp3; sourceTree = "<group>"; };
 		2BC12BDF2466B3810016254C /* lake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lake.wav; sourceTree = "<group>"; };
@@ -149,6 +148,7 @@
 		2BC12BF82466B3DA0016254C /* stadium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stadium.mp3; sourceTree = "<group>"; };
 		2BC12BFD246802AB0016254C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2E16581A2489090A00F049E9 /* tram.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tram.mp3; sourceTree = "<group>"; };
+		2E16581C24926DC000F049E9 /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
 		9A7C3302E05E0614CA775494 /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B3BB3287F7762279EE4181ED /* Pods-TouchExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.release.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.release.xcconfig"; sourceTree = "<group>"; };
 		B6C32EE1050D7185ECD66A26 /* Pods-TouchExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchExplore.debug.xcconfig"; path = "Target Support Files/Pods-TouchExplore/Pods-TouchExplore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -405,6 +405,7 @@
 				2BC12BDF2466B3810016254C /* lake.wav */,
 				2BC12BDE2466B37F0016254C /* motorway.mp3 */,
 				2E16581A2489090A00F049E9 /* tram.mp3 */,
+				2E16581C24926DC000F049E9 /* train.mp3 */,
 				2BC12BE42466B3820016254C /* pageflip.mp3 */,
 				2BC12BE52466B3830016254C /* park.wav */,
 				2BC12BDD2466B37E0016254C /* river.mp3 */,
@@ -412,7 +413,6 @@
 				2BC12BF72466B3DA0016254C /* playground.wav */,
 				2BC12BF82466B3DA0016254C /* stadium.mp3 */,
 				2BC12BF62466B3D80016254C /* tennis.mp3 */,
-				2BC12BDC2466B37E0016254C /* train.mp3 */,
 				2BC12BE22466B3810016254C /* water.mp3 */,
 				2BC12BDB2466B37E0016254C /* zoom_in.mp3 */,
 				2BC12BE02466B3810016254C /* zoom_out.mp3 */,
@@ -507,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC12BFC2466B3DA0016254C /* stadium.mp3 in Resources */,
+				2E16581D24926DC100F049E9 /* train.mp3 in Resources */,
 				2BC12BE82466B3840016254C /* zoom_in.mp3 in Resources */,
 				2BC12BFB2466B3DA0016254C /* playground.wav in Resources */,
 				2B97F2F5246E980F000982A7 /* map-example.jpeg in Resources */,
@@ -517,7 +518,6 @@
 				2B43043F247147E40099BA7D /* FeatureConfig.plist in Resources */,
 				2BC12BEF2466B3840016254C /* water.mp3 in Resources */,
 				2BC12BF32466B3840016254C /* gravel.mp3 in Resources */,
-				2BC12BE92466B3840016254C /* train.mp3 in Resources */,
 				2BC12BFA2466B3DA0016254C /* tennis.mp3 in Resources */,
 				2BC12BF92466B3DA0016254C /* golf.mp3 in Resources */,
 				2BC12BEE2466B3840016254C /* forest.mp3 in Resources */,
@@ -763,6 +763,7 @@
 				CODE_SIGN_ENTITLEMENTS = TouchExplore/TouchExplore.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TouchExplore/Preview Content\"";
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				ENABLE_PREVIEWS = YES;
@@ -771,7 +772,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.init.touchexplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -788,6 +789,7 @@
 				CODE_SIGN_ENTITLEMENTS = TouchExplore/TouchExplore.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TouchExplore/Preview Content\"";
 				DEVELOPMENT_TEAM = PQ9M73T7N8;
 				ENABLE_PREVIEWS = YES;
@@ -796,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.zhaw.init.touchexplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
