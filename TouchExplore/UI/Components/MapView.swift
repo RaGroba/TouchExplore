@@ -34,6 +34,7 @@ struct MapView: UIViewRepresentable {
 		return mapView
     }
 	
+	
     func makeCoordinator() -> MapView.Coordinator {
 		Coordinator(self, map: mapView)
     }
@@ -44,8 +45,14 @@ struct MapView: UIViewRepresentable {
 	}
     
 	private func enableUserLocationTracking() {
-		mapView.showsUserLocation = true
-		mapView.locationManager.setDesiredAccuracy?(kCLLocationAccuracyBest)
+		self.locationManager.requestWhenInUseAuthorization()
+		
+		self.mapView.locationManager = self.locationManager as? MGLLocationManager
+		
+		if CLLocationManager.locationServicesEnabled() == true {
+			mapView.showsUserLocation = true
+			mapView.locationManager.setDesiredAccuracy?(kCLLocationAccuracyBest)
+		}
 	}
 	
 	private func setAccessiblityProperties() {		
@@ -130,13 +137,33 @@ struct MapView: UIViewRepresentable {
         private var parent: MapView
 		private var map: MGLMapView
         
+		private var didSetInitialLocation = false
+		
 		init(_ parent: MapView, map: MGLMapView) {
             self.parent = parent
 			self.map = map
         }
 
 		func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {
-			mapView.setCenter((mapView.userLocation?.coordinate)!, animated: false)
+			guard let userLocation = mapView.userLocation?.coordinate else { return }
+			
+			if (CLLocationCoordinate2DIsValid(userLocation)) {
+				self.setInitialLocation(mapView, location: userLocation)
+			}
+		}
+		
+		func setInitialLocation(_ mapView: MGLMapView, location: CLLocationCoordinate2D) {
+			if !self.didSetInitialLocation {
+				mapView.setCenter(location, animated: false)
+				
+				self.didSetInitialLocation = true
+			}
+		}
+		
+		func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
+			guard let userLocation = userLocation?.coordinate else { return }
+			
+			self.setInitialLocation(mapView, location: userLocation)
 		}
 		
 		func mapView(_ mapView: MGLMapView, didFinishLoading style: MGLStyle) {
@@ -147,7 +174,7 @@ struct MapView: UIViewRepresentable {
 		
 			self.parent.centerCoordinate = mapView.centerCoordinate
 		}
-
+		
 		@objc func onDoubleTapped(gestureRecognizer: UITapGestureRecognizer) {
 			guard gestureRecognizer.view != nil else { return }
 
