@@ -21,7 +21,7 @@ struct DisabilitySimulatorView: View {
 		return Form {
 			Section(header: Text("Visibility (Transparency)")) {
 				HStack {
-					Toggle("Visually hide map", isOn: self.$vm.isHidden)
+					Toggle("Hide map visually", isOn: self.$vm.isHidden)
 				}
 				HStack {
 					Slider(value: self.$vm.disabilities.blindness, in: 0...1, step: 0.01)

@@ -50,13 +50,13 @@ struct ContentView: View {
 										leading: Button(action: {
 											self.isDisabilitySimulatorPresented = false
 										}) {
-											Text("Abbrechen")
+											Text("Cancel")
 										},
 										trailing: Button(action: {
 											self.isDisabilitySimulatorPresented = false
 											self.viewModel.disabilities = self.disabilitySimulatorViewModel.disabilities
 										}) {
-											Text("Speichern").fontWeight(.semibold)
+											Text("Save").fontWeight(.semibold)
 										}
 									)
 								}
