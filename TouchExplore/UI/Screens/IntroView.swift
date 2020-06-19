@@ -14,9 +14,9 @@ struct IntroView: View {
 	
 	let gestures: [String] = [
 		"Explore: move one finger on screen",
-		"Two-finger swipe: move map one screen width",
-		"Double tap: center map on tap location",
-		"Pinch and swipe: change zoom level"
+		"Two-finger swipe: move map by one screen width",
+		"Double tap: center map on the tapped location",
+		"Pinch: change zoom level"
 	]
 	
     var body: some View {
@@ -34,8 +34,8 @@ struct IntroView: View {
 				}
 				
 				VStack (alignment: .leading, spacing: 8) {
-					Text("Instruction").font(.headline).multilineTextAlignment(.center).padding(.bottom)
-					Text("Welcome! \(appName) offers you the opportunity to experience a map audiotactile. To do so, after clicking Start, activate the map with a double click and then move a finger on the map. To switch back to VoiceOver mode, swipe upwards with three fingers. You can use the following gestures to navigate the map:")
+					Text("Instructions").font(.headline).multilineTextAlignment(.center).padding(.bottom)
+					Text("Welcome on \(appName). With TouchExplore you can explore the map audiotactilly. To do so activate the map with a double tap and then move a finger on the screen. You will then hear sounds and get a haptic feedback based on the object you're interacting with. To switch back to VoiceOver mode (exit the map), swipe up with three fingers. You can use the following gestures to navigate on the map:")
 						.multilineTextAlignment(.leading)
 						.fixedSize(horizontal: false, vertical: true)
 						.lineLimit(nil)

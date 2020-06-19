@@ -66,14 +66,14 @@ struct ContentView: View {
 							}) {
 								Image(systemName: "location.fill")
 									.modifier(MapButton())
-									.accessibility(label: Text("Aktueller Standort einblenden"))
+									.accessibility(label: Text("Show current location"))
 							}
 							Button(action: {
 								self.router.goto(Routes.IntroView)
 							}) {
 								Image(systemName: "info.circle")
 									.modifier(MapButton())
-									.accessibility(label: Text("Intro erneut anzeigen"))
+									.accessibility(label: Text("Show Instructions"))
 							}
 						}.padding(.trailing, 8)
 					}

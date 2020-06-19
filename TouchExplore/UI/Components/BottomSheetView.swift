@@ -58,7 +58,7 @@ struct BottomSheetView<Content: View>: View {
 				VStack(spacing: 0) {
 					Handle(action: {
 						self.toggle()
-					}).padding(.top, 5).opacity(0.8).accessibility(value: self.isOpen ? Text("Kartensteuerung schliessen") : Text("Kartensteuerung öffnen"))
+					}).padding(.top, 5).opacity(0.8).accessibility(value: self.isOpen ? Text("Close map controls") : Text("Open map controls"))
 					self.content
 				}
 				.frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)

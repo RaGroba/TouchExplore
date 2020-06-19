@@ -32,10 +32,10 @@ struct PlacesSearchView<Content: View>: View {
 	
 	var body: some View {
 		VStack {
-			SearchBar("Search for citys or places", text: self.$viewModel.term, onEditingChanged: self.onEditingChanged).style(UISearchBar.Style.minimal)
+			SearchBar("Search for a city or place", text: self.$viewModel.term, onEditingChanged: self.onEditingChanged).style(UISearchBar.Style.minimal)
 
 			if self.viewModel.term.count > 0 {
-				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).accessibility(label: Text("search results"))
+				PlacesListView(landmarks: self.viewModel.landmarks, onTapAction: self.onPlacesTapAction).accessibility(label: Text("Search results"))
 			} else {
 				emptyTermView()
 			}

@@ -5,19 +5,19 @@ struct TestScenarioSelection: View {
 	
 	private let testSetups: [TestSetup] = [
 		TestSetup(
-			title: "Szenario 1",
+			title: "Scenario 1",
 			description: "Erkundung normal",
 			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Chinagarten),
 			disabilities: DisabilitySimulator()
 		),
 		TestSetup(
-			title: "Szenario 2",
+			title: "Scenario 2",
 			description: "Erkundung normal",
 			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Dolder),
 			disabilities: DisabilitySimulator()
 		),
 		TestSetup(
-			title: "Szenario 3",
+			title: "Scenario 3",
 			description: "Erkundung normal",
 			mapConfig: Map(zoomLevel: 18, centerCoordinate: Locations.Buerkliplatz),
 			disabilities: DisabilitySimulator()
@@ -44,7 +44,7 @@ struct TestScenarioSelection: View {
 	
 	var body: some View {
 		Form {
-			Section(header: Text("Testszenarien laden")) {
+			Section(header: Text("Select Testscenario")) {
 				List(testSetups, id: \.title) { setup in
 					TestScenarioButton(title: setup.title, description: setup.description, mapConfig: setup.mapConfig, action: { 
 						self.onSelect(setup)
