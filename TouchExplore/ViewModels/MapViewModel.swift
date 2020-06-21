@@ -29,9 +29,11 @@ final class MapViewModel: ObservableObject {
 	}()
 	
 	private var zoomLevelSubscriber: AnyCancellable?
+	private let interactionHandler: MapInteractionHandler;
 	
 	init() {
 		self.map = Map()
+		self.interactionHandler = MapInteractionHandler(speaker: self.speaker)
 		
 		zoomLevelSubscriber = self.$map.map {
 									$0.zoomLevel
@@ -55,8 +57,7 @@ final class MapViewModel: ObservableObject {
 		}
 	}
 	
-	// MARK: Dirty
-	private let interactionHandler = MapInteractionHandler();
+	// MARK: this should be refactored once we have more time for it
 	
 	private let featureService = FeatureMapper()
 	
@@ -65,31 +66,13 @@ final class MapViewModel: ObservableObject {
 		willSet {
 			dedupedFeatures = MGLUtils.dedupeFeatures(features: features)
 			
-//			interactedFeaturesPublisher.send(featureService.getInteractionWithHighestPriority(for: dedupedFeatures))
-			
 			interactionHandler.onFeatureChange(features: MGLUtils.dedupeFeatures(features: features))
-	
-			//			let newFeatureIdentifier: AnyObject? = features.first?.identifier as AnyObject?
-			//			let oldFeatureIdentifier: AnyObject? = oldValue.first?.identifier as AnyObject?
-			
-			
-			//			if (newFeatureIdentifier !== oldFeatureIdentifier) {
-			//				print("Features did change", newFeatureIdentifier, oldFeatureIdentifier)
-			//
-			//				if (features.count > 0) {
-			//
-			//					speaker.speak(text: "Neu")
-			//				} else {
-			//					speaker.speak(text: "Tschüss")
-			//				}
-			//			}
 		}
 	}
 	
 	@Published var dedupedFeatures:[MGLFeature] = [MGLFeature]()
 	
 	var featuresPublisher: AnyPublisher<[MGLFeature], Never> {
-		//			.debounce(for: 0.2, scheduler: RunLoop.main)
 		$dedupedFeatures
 			.removeDuplicates(by: { lhs, rhs -> Bool in
 				MGLUtils.areFeaturesArrayEqual(lhs: lhs, rhs: rhs)
@@ -171,12 +154,16 @@ class MapInteractionHandler {
     var tramSoundPlayer: AVAudioPlayer!
 	var currentSoundPlayer: AVAudioPlayer!
 	var currentFeature: MGLFeature!
-	var speechSynthesizer = AVSpeechSynthesizer()
+	
 	var speechCrossingSynthesizer = AVSpeechSynthesizer()
 	
 	var hapticEngine: CHHapticEngine!
 	
-	init() {
+	var speaker: SpeechSynthesizer
+	
+	init(speaker: SpeechSynthesizer) {
+		self.speaker = speaker;
+		
 		do {
 			streetSoundPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "motorway", ofType: "mp3")!))
 			streetSoundPlayer.numberOfLoops = 99
@@ -416,7 +403,7 @@ class MapInteractionHandler {
 		})))
 		
 		if streetNames.count > 0 {
-			let sentence = streetNames.reduce("Crossing") {
+			let sentence = streetNames.reduce("Kreuzung") {
 				"\($0) \($1)"
 			}
 			
@@ -427,9 +414,7 @@ class MapInteractionHandler {
 	
 	func featureChange(feature: MGLFeature){
 		currentSoundPlayer?.pause()
-		speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
-		
-		
+				
 		do {
 			try currentVibrationPlayer?.pause(atTime: 0)
 		} catch {
@@ -554,28 +539,16 @@ class MapInteractionHandler {
 		currentSoundPlayer?.pause()
 		self.currentSoundPlayer = nil
 		self.currentFeature = nil
-		speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
+
+		self.speaker.stopSpeaking()
 	}
 	
 	func synthesize(string: String){
-		if speechSynthesizer.isSpeaking {
-			speechSynthesizer.stopSpeaking(at: AVSpeechBoundary(rawValue: 0)!)
-		}
-		let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
-		speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
-		speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-		speechSynthesizer.speak(speechUtterance)
+		speaker.speak(text: string)
 	}
 	
 	func synthesizeCrossing(string: String){
-		if speechCrossingSynthesizer.isSpeaking {
-			
-		} else {
-			let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
-			speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
-			speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-			speechCrossingSynthesizer.speak(speechUtterance)
-		}
+		speaker.speak(text: string)
 	}
 	
 	func featuresAreEqual(feature1: MGLFeature, feature2: MGLFeature) -> Bool {
